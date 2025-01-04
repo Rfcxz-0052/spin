@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 
 app.post('/', async (req, res) => {
     try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbwIHg-7rLz8f3g9U2gUrAUQid-Hf5bq6JR9NmMcCe1NA9t7tN6oLzA9cJ_5IjjxCAHMEA/exec', {
+        const response = await fetch('https://script.google.com/macros/s/AKfycbwJUNSLK5B7JCr6GjGRSDN1S7g2SC170lDPOY658wDLCiOhksoZu1tbGC-6aFywvSotYA/exec', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(req.body),
