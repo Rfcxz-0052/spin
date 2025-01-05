@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 // POST 路由
 app.post('/', async (req, res) => {
     try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbzMDf4bVTlFvt_7YpWOEUpFjJtVvEoxbnnFYYdi8RsaByVUBkWrWmXsdo6vAnwSrBDMvg/exec', {
+        const response = await fetch('https://script.google.com/macros/s/AKfycbxMmMsR6g6jAUNh5WwJ0jl3ovBA11t1Kh2hpzomiBCXYkrXSA8yobyNTD48QTH7be7TkA/exec', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(req.body), // 將所有表單數據傳遞給 Google Apps Script
