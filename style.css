@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    padding: 0;
+    height:auto;
+    width:auto;
+    background-image: url(background.png);
+}
+
+h1{
+    text-align:center;
+}
+
+.form{
+    width:75%;
+    margin-left:10%;
+    margin-right:10%;
+    border-color:rgb(35, 164, 58);
+}
+
+.product {
+    padding: 20px;
+    margin: auto;
+}

@@ -5,24 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>學校消耗品訂購表</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>麗文書局-學校消耗品訂購表</h1>
+        
     <form id="myForm">
-        <label for="name">姓名: </label>
-        <input type="text" id="name" name="name" required><br><br>
+        <fieldset class="form">
+            <legend>填寫訂購人資訊</legend>
+            <form>
+                <label for="name">姓名: </label>
+                <input type="text" id="name" name="name" required><br><br>
 
-        <label for="phone">聯繫方式(手機號碼或校內分機): </label>
-        <input type="text" id="phone" name="phone" required><br><br>
+                <label for="phone">聯繫方式(手機號碼或校內分機): </label>
+                <input type="text" id="phone" name="phone" required><br><br>
 
-        <label for="unit">所屬單位或系所: </label>
-        <input type="text" id="unit" name="unit" required><br><br>
+                <label for="unit">所屬單位或系所: </label>
+                <input type="text" id="unit" name="unit" required><br><br>
 
-        <label for="email">Email: </label>
-        <input type="email" id="email" name="email" required><br><br>
+                <label for="email">Email: </label>
+                <input type="email" id="email" name="email" required><br><br>
+            </form>
+        </fieldset>
 
-        <button type="submit">Submit</button>
+        
+            <form>
+                <div class="product">
+                <img src="/product_picture/pencil.jpg" alt="pencil" width="200px" height="200px"><br><br>
+                <label for="pencil">鉛筆</label><br><br>
+                <input type="checkbox" id="pencil" name="pencil">2B  數量: <input type="number" id="pencil" name="pencil" min="0">  
+                <input type="checkbox" id="pencil" name="pencil">HB  數量: <input type="number" id="pencil" name="pencil" min="0"><br>
+                <img src="/product_picture/pencil.jpg" alt="pencil" width="200px" height="200px"><br><br>
+                <label for="pencil">鉛筆</label><br><br>
+                <input type="checkbox" id="pencil" name="pencil">2B  數量: <input type="number" id="pencil" name="pencil" min="0">
+                <input type="checkbox" id="pencil" name="pencil">HB  數量: <input type="number" id="pencil" name="pencil" min="0"><br>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        
     </form>
+
 
     <script>
         const form = document.getElementById('myForm');
