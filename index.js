@@ -13,19 +13,25 @@ app.use(bodyParser.json());
 // POST 路由
 app.post('/', async (req, res) => {
     try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbxMmMsR6g6jAUNh5WwJ0jl3ovBA11t1Kh2hpzomiBCXYkrXSA8yobyNTD48QTH7be7TkA/exec', {
+        const data = req.body;
+
+        // 確認資料是否包含必要字段
+        if (!data.name || !data.phone || !data.unit || !data.email) {
+            return res.status(400).json({ message: 'Incomplete form data!' });
+        }
+
+        const response = await fetch('https://script.google.com/macros/s/AKfycbyPeLhOM-ZkTDyQ2VOGkGJTRUEmJn4QipflDFetcVeelogxmBwPfK8VlJbTM-4WutKEWw/exec', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(req.body), // 將所有表單數據傳遞給 Google Apps Script
+            body: JSON.stringify(data),
         });
+
         const result = await response.json();
         res.json(result);
     } catch (error) {
+        console.error('Error:', error);
         res.status(500).json({ message: 'Error connecting to Google Apps Script' });
     }
 });
 
-
-// 啟動伺服器
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
