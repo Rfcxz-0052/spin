@@ -1,14 +1,14 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const fetch = require('node-fetch');
+import express from 'express';
+import { json } from 'body-parser';
+import cors from 'cors';
+import fetch from 'node-fetch';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 // 中間件
 app.use(cors());
-app.use(bodyParser.json());
+app.use(json());
 
 // POST 路由
 app.post('/', async (req, res) => {
@@ -34,4 +34,7 @@ app.post('/', async (req, res) => {
     }
 });
 
-
+// 啟動伺服器
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
