@@ -27,14 +27,38 @@
         </fieldset>
 
         <fieldset class="product">
-            <legend>選購商品</legend>
-            <div>
-                <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/pencil.jpg" alt="pencil" width="200px" height="200px"><br>
-                <label>鉛筆</label><br>
-                <input type="checkbox" id="pencil_2B_1" name="pencil_2B_1" onchange="toggleInput(this, 'pencil_qty_2B_1')"> 2B 數量: 
-                <input type="number" id="pencil_qty_2B_1" name="pencil_qty_2B_1" min="0" disabled><br>
-                <input type="checkbox" id="pencil_HB_1" name="pencil_HB_1" onchange="toggleInput(this, 'pencil_qty_HB_1')"> HB 數量: 
-                <input type="number" id="pencil_qty_HB_1" name="pencil_qty_HB_1" min="0" disabled><br>
+            <legend class="choose_product">-- 選購商品 --</legend>
+            <div class="item_01">
+                <div>
+                    <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/pencil.jpg" alt="pencil" width="200px" height="200px"><br>
+                    <label>鉛筆</label><br>
+                    <input type="checkbox" id="pencil_2B_1" name="pencil_2B_1" onchange="toggleInput(this, 'pencil_qty_2B_1')"> 2B 數量: 
+                    <input type="number" id="pencil_qty_2B_1" name="pencil_qty_2B_1" min="0" disabled style="width: 50px;"><br>
+                    <input type="checkbox" id="pencil_HB_1" name="pencil_HB_1" onchange="toggleInput(this, 'pencil_qty_HB_1')"> HB 數量: 
+                    <input type="number" id="pencil_qty_HB_1" name="pencil_qty_HB_1" min="0" disabled style="width: 50px;"><br>
+                </div>
+
+                <div>
+                    <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/pencil_01.png" alt="pencil" width="200px" height="200px"><br>
+                    <label>雙頭油性筆</label><br>
+                    <input type="checkbox" id="pencil_01_red" name="pencil_01_red" onchange="toggleInput(this, 'pencil_01_qty_red')"> 紅色 數量: 
+                    <input type="number" id="pencil_01_qty_red" name="pencil_01_qty_red" min="0" disabled style="width: 50px;"><br>
+                    <input type="checkbox" id="pencil_01_blue" name="pencil_01_blue" onchange="toggleInput(this, 'pencil_01_qty_blue')"> 藍色 數量: 
+                    <input type="number" id="pencil_01_qty_blue" name="pencil_01_qty_blue" min="0" disabled style="width: 50px;"><br>
+                    <input type="checkbox" id="pencil_01_black" name="pencil_01_black" onchange="toggleInput(this, 'pencil_01_qty_black')"> 黑色 數量: 
+                    <input type="number" id="pencil_01_qty_black" name="pencil_01_qty_black" min="0" disabled style="width: 50px;"><br>
+                </div>
+
+                <div>
+                    <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/pencil_02.jpg" alt="pencil" width="200px" height="200px"><br>
+                    <label>簽字筆1.0mm</label><br>
+                    <input type="checkbox" id="pencil_02_red" name="pencil_02_red" onchange="toggleInput(this, 'pencil_02_qty_red')"> 紅色 數量: 
+                    <input type="number" id="pencil_02_qty_red" name="pencil_02_qty_red" min="0" disabled style="width: 50px;"><br>
+                    <input type="checkbox" id="pencil_02_blue" name="pencil_02_blue" onchange="toggleInput(this, 'pencil_02_qty_blue')"> 藍色 數量: 
+                    <input type="number" id="pencil_02_qty_blue" name="pencil_02_qty_blue" min="0" disabled style="width: 50px;"><br>
+                    <input type="checkbox" id="pencil_01_black" name="pencil_02_black" onchange="toggleInput(this, 'pencil_02_qty_black')"> 黑色 數量: 
+                    <input type="number" id="pencil_02_qty_black" name="pencil_02_qty_black" min="0" disabled style="width: 50px;"><br>
+                </div>
             </div>
         </fieldset>
 
