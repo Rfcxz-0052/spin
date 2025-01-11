@@ -87,6 +87,12 @@
                 alert('Submission failed.');
             }
         });
+
+                // 新增的函數：控制數量輸入框啟用或禁用
+                function toggleInput(checkbox, inputId) {
+            const input = document.getElementById(inputId);
+            input.disabled = !checkbox.checked;
+        }
     </script>
     
 </body>
