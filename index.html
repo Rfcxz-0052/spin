@@ -82,9 +82,6 @@
                 const result = await response.json();
                 alert(result.message);
 
-                // 新增的程式碼：重置表單
-                form.reset();
-
             } catch (error) {
                 console.error('Error:', error);
                 alert('Submission failed.');
