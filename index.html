@@ -85,10 +85,6 @@
                 // 新增的程式碼：重置表單
                 form.reset();
 
-                // 確保所有數量輸入框被禁用
-                document.querySelectorAll('input[type="number"]').forEach(input => {
-                    input.disabled = true;
-                });
             } catch (error) {
                 console.error('Error:', error);
                 alert('Submission failed.');
