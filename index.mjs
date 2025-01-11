@@ -20,7 +20,7 @@ app.post('/', async (req, res) => {
         }
 
         const response = await fetch(
-            'https://script.google.com/macros/s/AKfycbzuIU7u0X315Bgjx_AnJuS3zo9q3MMto1LdOTa-FxAHzvI8BgJNs3m6e9Gza1hWisrHag/exec',
+            'https://script.google.com/macros/s/AKfycbzrBptw9AUnp91eUUJ4vwPAvIxT1B6Jf8Yflke4ixyrnVB5xTiUlUya3BfcZm67pXmi-g/exec',
             {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
