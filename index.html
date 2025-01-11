@@ -72,7 +72,7 @@
             e.preventDefault();
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
-    
+
             try {
                 const response = await fetch('https://spin-sg6f.onrender.com', {
                     method: 'POST',
@@ -81,17 +81,19 @@
                 });
                 const result = await response.json();
                 alert(result.message);
+
+                // 新增的程式碼：重置表單
+                form.reset();
+
+                // 確保所有數量輸入框被禁用
+                document.querySelectorAll('input[type="number"]').forEach(input => {
+                    input.disabled = true;
+                });
             } catch (error) {
                 console.error('Error:', error);
                 alert('Submission failed.');
             }
         });
-    
-        // 新增的函數：控制數量輸入框啟用或禁用
-        function toggleInput(checkbox, inputId) {
-            const input = document.getElementById(inputId);
-            input.disabled = !checkbox.checked;
-        }
     </script>
     
 </body>
