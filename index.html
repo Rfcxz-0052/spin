@@ -66,6 +66,12 @@
     </form>
 
     <script>
+                        // 新增的函數：控制數量輸入框啟用或禁用
+            function toggleInput(checkbox, inputId) {
+            const input = document.getElementById(inputId);
+            input.disabled = !checkbox.checked;
+        }
+
         // 現有程式碼：處理表單提交
         const form = document.getElementById('myForm');
         form.addEventListener('submit', async (e) => {
@@ -82,17 +88,14 @@
                 const result = await response.json();
                 alert(result.message);
 
+                 // 提交成功後清空並重置表單
+                form.reset();
+
             } catch (error) {
                 console.error('Error:', error);
                 alert('Submission failed.');
             }
         });
-
-                // 新增的函數：控制數量輸入框啟用或禁用
-                function toggleInput(checkbox, inputId) {
-            const input = document.getElementById(inputId);
-            input.disabled = !checkbox.checked;
-        }
     </script>
     
 </body>
