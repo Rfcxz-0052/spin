@@ -12,18 +12,18 @@
     
     <form id="myForm">
         <fieldset class="form">
-            <legend>填寫訂購人資訊</legend>
-            <label for="name">姓名: </label>
-            <input type="text" id="name" name="name" required><br><br>
+                <legend>填寫訂購人資訊</legend>
+                <label for="name">姓名: </label>
+                <input type="text" id="name" name="name" required><br><br>
 
-            <label for="phone">聯繫方式(手機號碼或校內分機): </label>
-            <input type="text" id="phone" name="phone" required><br><br>
+                <label for="phone">聯繫方式(手機號碼或校內分機): </label>
+                <input type="text" id="phone" name="phone" required><br><br>
 
-            <label for="unit">所屬單位或系所: </label>
-            <input type="text" id="unit" name="unit" required><br><br>
+                <label for="unit">所屬單位或系所: </label>
+                <input type="text" id="unit" name="unit" required><br><br>
 
-            <label for="email">Email: </label>
-            <input type="email" id="email" name="email" required><br><br>
+                <label for="email">Email: </label>
+                <input type="email" id="email" name="email" required><br><br>
         </fieldset>
 
         <fieldset class="product">
@@ -53,19 +53,19 @@
                 </div>
 
                 <div>
-                    <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/pencil_04.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                    <label>細字簽字筆0.5mm</label><br>
-                    紅色 數量: <input type="number" id="pencil_04_red" name="pencil_04_red" min="0" style="width: 50px;"><br>
-                    藍色 數量: <input type="number" id="pencil_04_blue" name="pencil_04_blue" min="0" style="width: 50px;"><br>
-                    黑色 數量: <input type="number" id="pencil_04_black" name="pencil_04_black" min="0" style="width: 50px;"><br>
-                </div>
-
-                <div>
                     <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/pencil_03.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
                     <label>原子筆(刻字)</label><br>
                     紅色 數量: <input type="number" id="pencil_03_red" name="pencil_03_red" min="0" style="width: 50px;"><br>
                     藍色 數量: <input type="number" id="pencil_03_blue" name="pencil_03_blue" min="0" style="width: 50px;"><br>
                     黑色 數量: <input type="number" id="pencil_03_black" name="pencil_03_black" min="0" style="width: 50px;"><br>
+                </div>
+
+                <div>
+                    <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/pencil_04.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                    <label>細字簽字筆0.5mm</label><br>
+                    紅色 數量: <input type="number" id="pencil_04_red" name="pencil_04_red" min="0" style="width: 50px;"><br>
+                    藍色 數量: <input type="number" id="pencil_04_blue" name="pencil_04_blue" min="0" style="width: 50px;"><br>
+                    黑色 數量: <input type="number" id="pencil_04_black" name="pencil_04_black" min="0" style="width: 50px;"><br>
                 </div>
             </div>
 
@@ -95,7 +95,7 @@
                 <div>
                     <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/blackboard_eraser.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
                     <label>板擦</label><br>
-                    數量: <input type="number" id="blackboard_eraser" name="blackboard_eraser" min="0" style="width: 50px;"> (顏色隨機)<br>
+                    數量: <input type="number" id="board_eraser" name="board_eraser" min="0" style="width: 50px;"> (顏色隨機)<br>
                 </div>
 
                 <div>
@@ -105,7 +105,9 @@
                 </div>
             </div>
         </fieldset>
-
+        <div>
+            <textarea name="memo" id="memo" cols="30" rows="10" placeholder="上方所列商品，如果都沒有您要訂購的商品，請填寫在此處，我們將會為您訂購。如果訂購時有任何問題，也會與您聯繫，謝謝您的訂購。">備註: </textarea>
+        </div>
         <button type="submit">Submit</button>
     </form>
 
