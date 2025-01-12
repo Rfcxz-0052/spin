@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>麗文書局-學校消耗品訂購表</h1>
-    
+    <p id="message" class="message">表單僅於每月1日至15日開放填寫,如15日當天為星期六日,則順延至下個星期一,請於期限內填寫。</p>
     <form id="myForm">
         <fieldset class="form">
                 <legend>填寫訂購人資訊</legend>
@@ -104,6 +104,46 @@
                     數量: <input type="number" id="eraser" name="eraser" min="0" style="width: 50px;"><br>
                 </div>   
             </div>
+
+            <div class="item_01">
+                <div>
+                    <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/correction_tape.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                    <label>SDI修正帶</label><br>
+                    CT-204橘色4.2mm*6M 數量: <input type="number" id="correction_tape_orange" name="correction_tape_orange" min="0" style="width: 50px;"><br>
+                    CT-205藍色5mm*6M 數量: <input type="number" id="correction_tape_blue" name="correction_tape_blue" min="0" style="width: 50px;"><br>
+                    CT-206綠色6mm*6M 數量: <input type="number" id="correction_tape_green" name="correction_tape_green" min="0" style="width: 50px;"><br>
+                </div>
+
+                <div>
+                    <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/correction_tape_01.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                    <label>SDI修正帶的替芯</label><br>
+                    CT-204r橘色4.2mm*6M 數量: <input type="number" id="correction_tape_01_orange" name="correction_tape_01_orange" min="0" style="width: 50px;"><br>
+                    CT-205r藍色5mm*6M 數量: <input type="number" id="correction_tape_01_blue" name="correction_tape_01_blue" min="0" style="width: 50px;"><br>
+                    CT-206r綠色6mm*6M 數量: <input type="number" id="correction_tape_01_green" name="correction_tape_01_green" min="0" style="width: 50px;"><br>
+                </div>
+
+                <div>
+                    <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/print_table.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                    <label>打印台</label><br>
+                    紅色 數量: <input type="number" id="print_table_red" name="print_table_red" min="0" style="width: 50px;"><br>
+                    藍色 數量: <input type="number" id="print_table_blue" name="print_table_blue" min="0" style="width: 50px;"><br>
+                    黑色 數量: <input type="number" id="print_table_black" name="print_table_black" min="0" style="width: 50px;"><br>
+                </div>
+
+                <div>
+                    <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/print_ink.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                    <label>打印水55g</label><br>
+                    紅色 數量: <input type="number" id="print_ink_red" name="print_ink_red" min="0" style="width: 50px;"><br>
+                    藍色 數量: <input type="number" id="print_ink_blue" name="print_ink_blue" min="0" style="width: 50px;"><br>
+                    黑色 數量: <input type="number" id="print_ink_black" name="print_ink_black" min="0" style="width: 50px;"><br>
+                </div>
+
+                <div>
+                    <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/ink_pad.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                    <label>印泥LIFE NO.50</label><br>
+                    數量: <input type="number" id="ink_pad" name="ink_pad" min="0" style="width: 50px;"><br>
+                </div>   
+            </div>
         </fieldset>
         <fieldset class="memo">
             上方所列商品，如果都沒有您要訂購的商品，請填寫在此處，我們將會為您訂購。如果訂購時有任何問題，也會與您聯繫。<br><br>
@@ -138,6 +178,33 @@
             }
         });
     </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const today = new Date();
+        const day = today.getDate();
+        const form = document.getElementById("myForm");
+        const message = document.getElementById("message");
+    
+        // 計算本月 15 日的日期
+        const fifteenth = new Date(today.getFullYear(), today.getMonth(), 15);
+        let cutoffDay = 15;
+    
+        // 如果 15 日是週六或週日，順延至 17 日
+        if (fifteenth.getDay() === 6) {
+            cutoffDay = 17; // 週六 -> 順延至 17 日
+        } else if (fifteenth.getDay() === 0) {
+            cutoffDay = 16; // 週日 -> 順延至 17 日
+        }
+    
+        // 檢查當前日期是否在開放範圍內
+        if (day < 1 || day > cutoffDay) {
+            form.style.display = "none"; // 隱藏表單
+            message.style.display = "block"; // 顯示提示訊息
+        }
+        });
+    </script>
+
     <footer>
         <h3 style="text-align: center;">謝謝您的訂購!如有疑問，請致電門市人員 TEL: 07-7519450</h3>
     </footer>
