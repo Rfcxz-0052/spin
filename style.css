@@ -1,6 +1,10 @@
-body {
+html, body {
     margin: 0;
     padding: 0;
+}
+
+
+body {
     height: auto;
     width: auto;
     background-image: url(background.png);
@@ -15,21 +19,53 @@ h1 {
     font-size: 1.5em;
     font-weight: bold;
     text-align: center;
-    padding: 0;
     margin: 20px;
 }
 
 .form {
-    width:75%;
+    width: 75%;
     margin-left:10%;
     margin-right:10%;
     border-color:rgb(35, 164, 58);
 }
 
+.info {
+    margin-bottom: 10px;
+}
+
 .product {
-    padding: 20px;
-    margin: 20px 20px 20px 20px;
     border: none;
+    margin-top: 20px;
+}
+
+/* nav 的外層樣式 */
+nav {
+    display: flex; /* 使用 flexbox 排列按鈕 */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* 按鈕樣式 */
+nav button {
+    flex: 1; /* 按鈕寬度均分 */
+    border: none; /* 移除邊框 */
+    background-color: green; /* 背景顏色為綠色 */
+    color: white; /* 按鈕文字顏色為白色 */
+    padding: 10px; /* 增加按鈕內部間距 */
+    font-size: 16px; /* 調整文字大小 */
+    cursor: pointer; /* 鼠標移上時變成指針 */
+}
+
+/* 按鈕點擊或聚焦時的效果 */
+nav button:active,
+nav button:focus {
+    outline: none; /* 移除按鈕的外框 */
+    background-color: darkgreen; /* 點擊後的按鈕顏色 */
+}
+
+/* 按鈕 hover 時的效果 */
+nav button:hover {
+    background-color: limegreen; /* 滑鼠懸停時的顏色 */
 }
 
 .choose_product {
@@ -40,15 +76,19 @@ h1 {
     margin: 0;
 }
 
-.item_01 {
+.item {
     display: flex;
     flex-direction: row;
-    justify-content:space-between;
-    margin: 0 0 30px 0;
+    margin: 0 2% 30px 2%;
+}
+
+.item_01{
+    margin: 0 2% 0 2%;
 }
 
 .memo {
     border: none;
+    margin: 0 30px 0 30px;
 }
 
 .memo_01 {
