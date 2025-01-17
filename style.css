@@ -3,11 +3,10 @@ html, body {
     padding: 0;
 }
 
-
 body {
     height: auto;
     width: auto;
-    background-image: url(background.png);
+    background-color: #A6FFA6
 }
 
 h1 {
@@ -35,14 +34,14 @@ h1 {
 
 .product {
     border: none;
-    margin-top: 20px;
+    margin: 20px 0 0 0;
 }
 
 /* nav 的外層樣式 */
 nav {
     display: flex; /* 使用 flexbox 排列按鈕 */
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px 0 20px 0;
+    width: 100%;
 }
 
 /* 按鈕樣式 */
