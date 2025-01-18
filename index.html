@@ -8,343 +8,369 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <!-- 切換頁面的按鈕 -->
+            <button onclick="showPage('submit')">填寫表單</button>
+            <button onclick="showPage('search')">查詢內容</button>
+        </nav>
+    </header>
     <h1>麗文書局-學校消耗品訂購表</h1>
     <p id="message" class="message">表單僅於每月1日至15日開放填寫,如15日當天為星期六日,則順延至下個星期一,請於期限內填寫。</p>
-    <form id="myForm">
-        <fieldset class="form">
-                <legend class="info">填寫訂購人資訊</legend>
-                <label for="name">姓名: </label>
-                <input type="text" id="name" name="name" required><br><br>
-
-                <label for="phone">聯繫方式(手機號碼或校內分機): </label>
-                <input type="text" id="phone" name="phone" required><br><br>
-
-                <label for="unit">所屬單位或系所: </label>
-                <input type="text" id="unit" name="unit" required><br><br>
-
-                <label for="email">Email: </label>
-                <input type="email" id="email" name="email" required><br><br>
-        </fieldset>
-
-        <fieldset class="product">
-            <!-- 導航分類 -->
-            <nav>
-                <button type="button" onclick="showCategory('category1')">筆類</button>
-                <button type="button" onclick="showCategory('category2')">辦公用品類</button>
-                <button type="button" onclick="showCategory('category3')">生活用品類</button>
-            </nav>
-            <legend class="choose_product">-- 選購商品 --</legend>
-            <div id="category1" class="category">
-                <h2>筆類</h2>
-                <div class="item">
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/pencil.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>鉛筆</label><br>
-                        2B 數量: <input type="number" id="pencil_2B" name="pencil_2B" min="0" style="width: 50px;">支<br>
-                        HB 數量: <input type="number" id="pencil_HB" name="pencil_HB" min="0" style="width: 50px;">支<br>
+    <!-- 表單提交頁 -->
+    <div id="submit-page">
+        <form id="myForm">
+            <fieldset class="form">
+                    <legend class="info">填寫訂購人資訊</legend>
+                    <label for="name">姓名: </label>
+                    <input type="text" id="name" name="name" required><br><br>
+    
+                    <label for="phone">聯繫方式(手機號碼或校內分機): </label>
+                    <input type="text" id="phone" name="phone" required><br><br>
+    
+                    <label for="unit">所屬單位或系所: </label>
+                    <input type="text" id="unit" name="unit" required><br><br>
+    
+                    <label for="email">Email: </label>
+                    <input type="email" id="email" name="email" required><br><br>
+            </fieldset>
+    
+            <fieldset class="product">
+                <!-- 導航分類 -->
+                <nav>
+                    <button type="button" onclick="showCategory('category1')">筆類</button>
+                    <button type="button" onclick="showCategory('category2')">辦公用品類</button>
+                    <button type="button" onclick="showCategory('category3')">膠水膠帶類</button>                
+                    <button type="button" onclick="showCategory('category4')">電池、生活用品類</button>
+                </nav>
+                <legend class="choose_product">-- 選購商品 --</legend>
+                <div id="category1" class="category" style="display: none;">
+                    <h2>筆類</h2>
+                    <div class="item">
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/pencil.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>鉛筆</label><br>
+                            2B 數量: <input type="number" id="pencil_2B" name="pencil_2B" min="0" style="width: 50px;">支<br>
+                            HB 數量: <input type="number" id="pencil_HB" name="pencil_HB" min="0" style="width: 50px;">支<br>
+                        </div>
+        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/pencil_01.png" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>雙頭油性筆</label><br>
+                            紅色 數量: <input type="number" id="pencil_01_red" name="pencil_01_red" min="0" style="width: 50px;">支<br>
+                            藍色 數量: <input type="number" id="pencil_01_blue" name="pencil_01_blue" min="0" style="width: 50px;">支<br>
+                            黑色 數量: <input type="number" id="pencil_01_black" name="pencil_01_black" min="0" style="width: 50px;">支<br>
+                        </div>
+        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/pencil_02.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>簽字筆1.0mm</label><br>
+                            紅色 數量: <input type="number" id="pencil_02_red" name="pencil_02_red" min="0" style="width: 50px;">支<br>
+                            藍色 數量: <input type="number" id="pencil_02_blue" name="pencil_02_blue" min="0" style="width: 50px;">支<br>
+                            黑色 數量: <input type="number" id="pencil_02_black" name="pencil_02_black" min="0" style="width: 50px;">支<br>
+                        </div>
+        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/pencil_03.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>原子筆(刻字)</label><br>
+                            紅色 數量: <input type="number" id="pencil_03_red" name="pencil_03_red" min="0" style="width: 50px;">支<br>
+                            藍色 數量: <input type="number" id="pencil_03_blue" name="pencil_03_blue" min="0" style="width: 50px;">支<br>
+                            黑色 數量: <input type="number" id="pencil_03_black" name="pencil_03_black" min="0" style="width: 50px;">支<br>
+                        </div>
+        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/pencil_04.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>細字簽字筆0.5mm</label><br>
+                            紅色 數量: <input type="number" id="pencil_04_red" name="pencil_04_red" min="0" style="width: 50px;">支<br>
+                            藍色 數量: <input type="number" id="pencil_04_blue" name="pencil_04_blue" min="0" style="width: 50px;">支<br>
+                            黑色 數量: <input type="number" id="pencil_04_black" name="pencil_04_black" min="0" style="width: 50px;">支<br>
+                        </div>
                     </div>
     
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/pencil_01.png" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>雙頭油性筆</label><br>
-                        紅色 數量: <input type="number" id="pencil_01_red" name="pencil_01_red" min="0" style="width: 50px;">支<br>
-                        藍色 數量: <input type="number" id="pencil_01_blue" name="pencil_01_blue" min="0" style="width: 50px;">支<br>
-                        黑色 數量: <input type="number" id="pencil_01_black" name="pencil_01_black" min="0" style="width: 50px;">支<br>
-                    </div>
-    
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/pencil_02.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>簽字筆1.0mm</label><br>
-                        紅色 數量: <input type="number" id="pencil_02_red" name="pencil_02_red" min="0" style="width: 50px;">支<br>
-                        藍色 數量: <input type="number" id="pencil_02_blue" name="pencil_02_blue" min="0" style="width: 50px;">支<br>
-                        黑色 數量: <input type="number" id="pencil_02_black" name="pencil_02_black" min="0" style="width: 50px;">支<br>
-                    </div>
-    
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/pencil_03.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>原子筆(刻字)</label><br>
-                        紅色 數量: <input type="number" id="pencil_03_red" name="pencil_03_red" min="0" style="width: 50px;">支<br>
-                        藍色 數量: <input type="number" id="pencil_03_blue" name="pencil_03_blue" min="0" style="width: 50px;">支<br>
-                        黑色 數量: <input type="number" id="pencil_03_black" name="pencil_03_black" min="0" style="width: 50px;">支<br>
-                    </div>
-    
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/pencil_04.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>細字簽字筆0.5mm</label><br>
-                        紅色 數量: <input type="number" id="pencil_04_red" name="pencil_04_red" min="0" style="width: 50px;">支<br>
-                        藍色 數量: <input type="number" id="pencil_04_blue" name="pencil_04_blue" min="0" style="width: 50px;">支<br>
-                        黑色 數量: <input type="number" id="pencil_04_black" name="pencil_04_black" min="0" style="width: 50px;">支<br>
+                    <div class="item">
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/board_maker.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>白板筆</label><br>
+                            紅色 數量: <input type="number" id="board_maker_red" name="board_maker_red" min="0" style="width: 50px;">支<br>
+                            藍色 數量: <input type="number" id="board_maker_blue" name="board_maker_blue" min="0" style="width: 50px;">支<br>
+                            黑色 數量: <input type="number" id="board_maker_black" name="board_maker_black" min="0" style="width: 50px;">支<br>
+                        </div>
+        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/marker_ink.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>白板筆補充液</label><br>
+                            紅色 數量: <input type="number" id="maker_ink_red" name="maker_ink_red" min="0" style="width: 50px;">瓶<br>
+                            藍色 數量: <input type="number" id="maker_ink_blue" name="maker_ink_blue" min="0" style="width: 50px;">瓶<br>
+                            黑色 數量: <input type="number" id="maker_ink_black" name="maker_ink_black" min="0" style="width: 50px;">瓶<br>
+                        </div>
+                        <div class="item_01"></div>
+                        <div class="item_01"></div>
+                        <div class="item_01"></div>
                     </div>
                 </div>
-
-                <div class="item">
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/board_maker.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>白板筆</label><br>
-                        紅色 數量: <input type="number" id="board_maker_red" name="board_maker_red" min="0" style="width: 50px;">支<br>
-                        藍色 數量: <input type="number" id="board_maker_blue" name="board_maker_blue" min="0" style="width: 50px;">支<br>
-                        黑色 數量: <input type="number" id="board_maker_black" name="board_maker_black" min="0" style="width: 50px;">支<br>
+                    
+                <div id="category2" class="category" style="display: none;">
+                    <h2>辦公用品類</h2>
+                    <div class="item">
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/utility_knife.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>美工刀</label><br>
+                            數量: <input type="number" id="utility_knife" name="utility_knife" min="0" style="width: 50px;">支 (顏色隨機)<br>
+                        </div>
+        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/blackboard_eraser.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>板擦</label><br>
+                            數量: <input type="number" id="board_eraser" name="board_eraser" min="0" style="width: 50px;">個 (顏色隨機)<br>
+                        </div>
+        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/eraser.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>橡皮擦</label><br>
+                            數量: <input type="number" id="eraser" name="eraser" min="0" style="width: 50px;">個<br>
+                        </div>   
+        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/correction_tape.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>SDI修正帶</label><br>
+                            橘色4.2mm 數量: <input type="number" id="correction_tape_orange" name="correction_tape_orange" min="0" style="width: 50px;">個<br>
+                            藍色5mm 數量: <input type="number" id="correction_tape_blue" name="correction_tape_blue" min="0" style="width: 50px;">個<br>
+                            綠色6mm 數量: <input type="number" id="correction_tape_green" name="correction_tape_green" min="0" style="width: 50px;">個<br>
+                        </div>
+        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/correction_tape_01.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>SDI修正帶的替芯</label><br>
+                            橘色4.2mm 數量: <input type="number" id="correction_tape_01_orange" name="correction_tape_01_orange" min="0" style="width: 50px;"><br>
+                            藍色5mm 數量: <input type="number" id="correction_tape_01_blue" name="correction_tape_01_blue" min="0" style="width: 50px;">個<br>
+                            綠色6mm 數量: <input type="number" id="correction_tape_01_green" name="correction_tape_01_green" min="0" style="width: 50px;">個<br>
+                        </div>
                     </div>
     
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/marker_ink.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>白板筆補充液</label><br>
-                        紅色 數量: <input type="number" id="maker_ink_red" name="maker_ink_red" min="0" style="width: 50px;">瓶<br>
-                        藍色 數量: <input type="number" id="maker_ink_blue" name="maker_ink_blue" min="0" style="width: 50px;">瓶<br>
-                        黑色 數量: <input type="number" id="maker_ink_black" name="maker_ink_black" min="0" style="width: 50px;">瓶<br>
+                    <div class="item">
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/print_table.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>打印台</label><br>
+                            紅色 數量: <input type="number" id="print_table_red" name="print_table_red" min="0" style="width: 50px;">個<br>
+                            藍色 數量: <input type="number" id="print_table_blue" name="print_table_blue" min="0" style="width: 50px;">個<br>
+                            黑色 數量: <input type="number" id="print_table_black" name="print_table_black" min="0" style="width: 50px;">個<br>
+                        </div>
+        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/print_ink.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>打印水55g</label><br>
+                            紅色 數量: <input type="number" id="print_ink_red" name="print_ink_red" min="0" style="width: 50px;">瓶<br>
+                            藍色 數量: <input type="number" id="print_ink_blue" name="print_ink_blue" min="0" style="width: 50px;">瓶<br>
+                            黑色 數量: <input type="number" id="print_ink_black" name="print_ink_black" min="0" style="width: 50px;">瓶<br>
+                        </div>
+        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/ink_pad.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>印泥LIFE NO.50</label><br>
+                            數量: <input type="number" id="ink_pad" name="ink_pad" min="0" style="width: 50px;">個<br>
+                        </div>   
+        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/ink.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>利百代 明色朱液</label><br>
+                            數量: <input type="number" id="ink_red" name="ink_red" min="0" style="width: 50px;">瓶<br>
+                        </div>
+        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/ink_oil.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>自動印章補充液 LIFE(10cc/1瓶)</label><br>
+                            紅色 數量: <input type="number" id="ink_oil_red" name="ink_oil_red" min="0" style="width: 50px;">瓶<br>
+                            藍色 數量: <input type="number" id="ink_oil_blue" name="ink_oil_blue" min="0" style="width: 50px;">瓶<br>
+                            黑色 數量: <input type="number" id="ink_oil_black" name="ink_oil_black" min="0" style="width: 50px;">瓶<br>
+                        </div>
                     </div>
-
-                    <div class="item_01"></div>
-                    <div class="item_01"></div>
-                    <div class="item_01"></div>
+    
+                    <div class="item">
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/post.png" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>便利貼</label><br>
+                            小 數量: <input type="number" id="post_01" name="post_01" min="0" style="width: 50px;">個<br>
+                            中 數量: <input type="number" id="post_02" name="post_02" min="0" style="width: 50px;">個<br>
+                            大 數量: <input type="number" id="post_03" name="post_03" min="0" style="width: 50px;">個<br>
+                        </div>
+        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/date_stamp.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>日期戳</label><br>
+                            數量: <input type="number" id="date_stamp" name="date_stamp" min="0" style="width: 50px;">個<br>
+                        </div>
+        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/number_oil.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>號碼機油</label><br>
+                            數量: <input type="number" id="number_oil" name="number_oil" min="0" style="width: 50px;">瓶<br>
+                        </div>   
+        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/stapler.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>SDI 10號釘書機</label><br>
+                            數量: <input type="number" id="stapler" name="stapler" min="0" style="width: 50px;">個<br>
+                        </div>
+        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/staples.png" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>SDI 釘書針</label><br>
+                            3號 數量: <input type="number" id="staples_three" name="staples_three" min="0" style="width: 50px;">盒<br>
+                            10號 數量: <input type="number" id="staples_ten" name="staples_ten" min="0" style="width: 50px;">盒<br>
+                        </div>
+                    </div>
+    
+                    <div class="item">
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/paper_clip.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>三角迴紋針</label><br>
+                            數量: <input type="number" id="paper_clip" name="paper_clip" min="0" style="width: 50px;">盒<br>
+                        </div>
+        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/drawing_pin.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>力大NO.604 圖釘</label><br>
+                            數量: <input type="number" id="drawing_pin" name="drawing_pin" min="0" style="width: 50px;">盒<br>
+                        </div>
+        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/scissors.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>ABEL 剪刀</label><br>
+                            數量: <input type="number" id="scissors" name="scissors" min="0" style="width: 50px;">支<br>
+                        </div>   
+    
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/lipstick_glue.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>UHU口紅膠21G</label><br>
+                            數量: <input type="number" id="lipstick_glue" name="lipstick_glue" min="0" style="width: 50px;">個<br>
+                        </div>
+    
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/band.png" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>橡皮圈</label><br>
+                            大 數量: <input type="number" id="band" name="band" min="0" style="width: 50px;">包<br>
+                            小 數量: <input type="number" id="band_01" name="band_01" min="0" style="width: 50px;">包<br>
+                        </div>
+                    </div>
+    
+                    <div class="item">
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/binder_clip.png" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>ABEL 長尾夾</label><br>
+                            小 (19mm) 數量: <input type="number" id="binder_clip_01" name="binder_clip_01" min="0" style="width: 50px;">盒<br>
+                            中 (25mm) 數量: <input type="number" id="binder_clip_02" name="binder_clip_02" min="0" style="width: 50px;">盒<br>
+                            大 (41mm) 數量: <input type="number" id="binder_clip_03" name="binder_clip_03" min="0" style="width: 50px;">盒<br>
+                        </div>
+        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/labels.png" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>自黏標籤</label><br>
+                            小 (14*26mm) 數量: <input type="number" id="labels_01" name="labels_01" min="0" style="width: 50px;">包<br>
+                            中 (25*53mm) 數量: <input type="number" id="labels_02" name="labels_02" min="0" style="width: 50px;">包<br>
+                            大 (34*73mm) 數量: <input type="number" id="labels_03" name="labels_03" min="0" style="width: 50px;">包<br>
+                        </div>
+        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/chalk.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>粉筆(一盒50支)</label><br>
+                            白色 數量: <input type="number" id="chalk_01" name="chalk_01" min="0" style="width: 50px;">盒<br>
+                            黃色 數量: <input type="number" id="chalk_02" name="chalk_02" min="0" style="width: 50px;">盒<br>
+                            紅色 數量: <input type="number" id="chalk_04" name="chalk_04" min="0" style="width: 50px;">盒<br>
+                            綠色 數量: <input type="number" id="chalk_05" name="chalk_05" min="0" style="width: 50px;">盒<br>
+                        </div>
+    
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/da_paper.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>Double A A4影印紙(一箱5包)</label><br>
+                            數量: <input type="number" id="da_paper" name="da_paper" min="0" style="width: 50px;">箱<br>
+                        </div>
+        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/qu_paper.jpeg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>QUALITY A4影印紙(一箱5包)</label><br>
+                            數量: <input type="number" id="qu_paper" name="qu_paper" min="0" style="width: 50px;">箱<br>
+                        </div>
+                    </div>
+    
                 </div>
-            </div>
-                
-            <div id="category2" class="category" style="display: none;">
-                <h2>辦公用品類</h2>
-                <div class="item">
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/utility_knife.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>美工刀</label><br>
-                        數量: <input type="number" id="utility_knife" name="utility_knife" min="0" style="width: 50px;">支 (顏色隨機)<br>
-                    </div>
     
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/blackboard_eraser.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>板擦</label><br>
-                        數量: <input type="number" id="board_eraser" name="board_eraser" min="0" style="width: 50px;">個 (顏色隨機)<br>
-                    </div>
+                <div id="category3" class="category" style="display: none;">
+                    <h2>膠水膠帶類</h2>
+                    <div class="item">
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/pvc_tape.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>封箱膠帶 四維(4.8cm*27m)</label><br>
+                            數量: <input type="number" id="pvc_tape" name="pvc_tape" min="0" style="width: 50px;">捲<br>
+                        </div>
+        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/tape.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>透明膠帶(大) OPP膠帶-2吋</label><br>
+                            數量: <input type="number" id="tape" name="tape" min="0" style="width: 50px;">捲<br>
+                        </div>
+        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/opp_tape.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>透明膠帶(小) 18mm*40y</label><br>
+                            數量: <input type="number" id="opp_tape" name="opp_tape" min="0" style="width: 50px;">捲<br>
+                        </div>   
+        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/double_sided.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>雙面膠帶 四維(1.2cm*15Y)</label><br>
+                            數量: <input type="number" id="double_sided" name="double_sided" min="0" style="width: 50px;">個<br>
+                        </div>
     
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/eraser.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>橡皮擦</label><br>
-                        數量: <input type="number" id="eraser" name="eraser" min="0" style="width: 50px;">個<br>
-                    </div>   
-    
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/correction_tape.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>SDI修正帶</label><br>
-                        橘色4.2mm 數量: <input type="number" id="correction_tape_orange" name="correction_tape_orange" min="0" style="width: 50px;">個<br>
-                        藍色5mm 數量: <input type="number" id="correction_tape_blue" name="correction_tape_blue" min="0" style="width: 50px;">個<br>
-                        綠色6mm 數量: <input type="number" id="correction_tape_green" name="correction_tape_green" min="0" style="width: 50px;">個<br>
-                    </div>
-    
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/correction_tape_01.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>SDI修正帶的替芯</label><br>
-                        橘色4.2mm 數量: <input type="number" id="correction_tape_01_orange" name="correction_tape_01_orange" min="0" style="width: 50px;"><br>
-                        藍色5mm 數量: <input type="number" id="correction_tape_01_blue" name="correction_tape_01_blue" min="0" style="width: 50px;">個<br>
-                        綠色6mm 數量: <input type="number" id="correction_tape_01_green" name="correction_tape_01_green" min="0" style="width: 50px;">個<br>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/print_table.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>打印台</label><br>
-                        紅色 數量: <input type="number" id="print_table_red" name="print_table_red" min="0" style="width: 50px;">個<br>
-                        藍色 數量: <input type="number" id="print_table_blue" name="print_table_blue" min="0" style="width: 50px;">個<br>
-                        黑色 數量: <input type="number" id="print_table_black" name="print_table_black" min="0" style="width: 50px;">個<br>
-                    </div>
-    
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/print_ink.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>打印水55g</label><br>
-                        紅色 數量: <input type="number" id="print_ink_red" name="print_ink_red" min="0" style="width: 50px;">瓶<br>
-                        藍色 數量: <input type="number" id="print_ink_blue" name="print_ink_blue" min="0" style="width: 50px;">瓶<br>
-                        黑色 數量: <input type="number" id="print_ink_black" name="print_ink_black" min="0" style="width: 50px;">瓶<br>
-                    </div>
-    
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/ink_pad.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>印泥LIFE NO.50</label><br>
-                        數量: <input type="number" id="ink_pad" name="ink_pad" min="0" style="width: 50px;">個<br>
-                    </div>   
-    
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/ink.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>利百代 明色朱液</label><br>
-                        數量: <input type="number" id="ink_red" name="ink_red" min="0" style="width: 50px;">瓶<br>
-                    </div>
-    
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/ink_oil.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>自動印章補充液 LIFE(10cc/1瓶)</label><br>
-                        紅色 數量: <input type="number" id="ink_oil_red" name="ink_oil_red" min="0" style="width: 50px;">瓶<br>
-                        藍色 數量: <input type="number" id="ink_oil_blue" name="ink_oil_blue" min="0" style="width: 50px;">瓶<br>
-                        黑色 數量: <input type="number" id="ink_oil_black" name="ink_oil_black" min="0" style="width: 50px;">瓶<br>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/post.png" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>便利貼</label><br>
-                        小 數量: <input type="number" id="post_01" name="post_01" min="0" style="width: 50px;">個<br>
-                        中 數量: <input type="number" id="post_02" name="post_02" min="0" style="width: 50px;">個<br>
-                        大 數量: <input type="number" id="post_03" name="post_03" min="0" style="width: 50px;">個<br>
-                    </div>
-    
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/date_stamp.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>日期戳</label><br>
-                        數量: <input type="number" id="date_stamp" name="date_stamp" min="0" style="width: 50px;">個<br>
-                    </div>
-    
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/number_oil.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>號碼機油</label><br>
-                        數量: <input type="number" id="number_oil" name="number_oil" min="0" style="width: 50px;">瓶<br>
-                    </div>   
-    
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/stapler.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>SDI 10號釘書機</label><br>
-                        數量: <input type="number" id="stapler" name="stapler" min="0" style="width: 50px;">個<br>
-                    </div>
-    
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/staples.png" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>SDI 釘書針</label><br>
-                        3號 數量: <input type="number" id="staples_three" name="staples_three" min="0" style="width: 50px;">盒<br>
-                        10號 數量: <input type="number" id="staples_ten" name="staples_ten" min="0" style="width: 50px;">盒<br>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/paper_clip.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>三角迴紋針</label><br>
-                        數量: <input type="number" id="paper_clip" name="paper_clip" min="0" style="width: 50px;">盒<br>
-                    </div>
-    
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/drawing_pin.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>力大NO.604 圖釘</label><br>
-                        數量: <input type="number" id="drawing_pin" name="drawing_pin" min="0" style="width: 50px;">盒<br>
-                    </div>
-    
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/scissors.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>ABEL 剪刀</label><br>
-                        數量: <input type="number" id="scissors" name="scissors" min="0" style="width: 50px;">支<br>
-                    </div>   
-    
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/glue.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>膠水(雄獅) 50cc</label><br>
-                        數量: <input type="number" id="glue" name="glue" min="0" style="width: 50px;">瓶<br>
-                    </div>
-    
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/lipstick_glue.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>UHU口紅膠21G</label><br>
-                        數量: <input type="number" id="lipstick_glue" name="lipstick_glue" min="0" style="width: 50px;">個<br>
-                    </div>
-    
-                </div>
-
-                <div class="item">
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/pvc_tape.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>封箱膠帶 四維(4.8cm*27m)</label><br>
-                        數量: <input type="number" id="pvc_tape" name="pvc_tape" min="0" style="width: 50px;">捲<br>
-                    </div>
-    
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/tape.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>透明膠帶(大) OPP膠帶-2吋</label><br>
-                        數量: <input type="number" id="tape" name="tape" min="0" style="width: 50px;">捲<br>
-                    </div>
-    
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/opp_tape.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>透明膠帶(小) 18mm*40y</label><br>
-                        數量: <input type="number" id="opp_tape" name="opp_tape" min="0" style="width: 50px;">捲<br>
-                    </div>   
-    
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/double_sided.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>雙面膠帶 四維(1.2cm*15Y)</label><br>
-                        數量: <input type="number" id="double_sided" name="double_sided" min="0" style="width: 50px;">個<br>
-                    </div>
-    
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/band.png" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>橡皮圈</label><br>
-                        大 數量: <input type="number" id="band" name="band" min="0" style="width: 50px;">包<br>
-                        小 數量: <input type="number" id="band_01" name="band_01" min="0" style="width: 50px;">包<br>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/binder_clip.png" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>ABEL 長尾夾</label><br>
-                        小 (19mm) 數量: <input type="number" id="binder_clip_01" name="binder_clip_01" min="0" style="width: 50px;">盒<br>
-                        中 (25mm) 數量: <input type="number" id="binder_clip_02" name="binder_clip_02" min="0" style="width: 50px;">盒<br>
-                        大 (41mm) 數量: <input type="number" id="binder_clip_03" name="binder_clip_03" min="0" style="width: 50px;">盒<br>
-                    </div>
-    
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/labels.png" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>自黏標籤</label><br>
-                        小 (14*26mm) 數量: <input type="number" id="labels_01" name="labels_01" min="0" style="width: 50px;">包<br>
-                        中 (25*53mm) 數量: <input type="number" id="labels_02" name="labels_02" min="0" style="width: 50px;">包<br>
-                        大 (34*73mm) 數量: <input type="number" id="labels_03" name="labels_03" min="0" style="width: 50px;">包<br>
-                    </div>
-    
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/chalk.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>粉筆(一盒50支)</label><br>
-                        白色 數量: <input type="number" id="chalk_01" name="chalk_01" min="0" style="width: 50px;">盒<br>
-                        黃色 數量: <input type="number" id="chalk_02" name="chalk_02" min="0" style="width: 50px;">盒<br>
-                        紅色 數量: <input type="number" id="chalk_04" name="chalk_04" min="0" style="width: 50px;">盒<br>
-                        綠色 數量: <input type="number" id="chalk_05" name="chalk_05" min="0" style="width: 50px;">盒<br>
-                    </div>
-                    <div class="item_01"></div>
-                    <div class="item_01"></div>
-                </div>
-
-            </div>
-
-            <div id="category3" class="category" style="display: none;">
-                <h2>生活用品類</h2>
-                <div class="item">
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/battery.jpeg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>國際牌 電池(一組4入)</label><br>
-                        3號 數量: <input type="number" id="battery" name="battery" min="0" style="width: 50px;">組<br>
-                        4號 數量: <input type="number" id="battery_01" name="battery_01" min="0" style="width: 50px;">組<br>
-                    </div>
-    
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/toilet_paper.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>艾多美衛生紙 一串:110抽x24包</label><br>
-                        數量: <input type="number" id="toilet_paper" name="toilet_paper" min="0" style="width: 50px;">串<br>
-                    </div>
-    
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/da_paper.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>Double A A4影印紙(一箱5包)</label><br>
-                        數量: <input type="number" id="da_paper" name="da_paper" min="0" style="width: 50px;">箱<br>
-                    </div>
-    
-                    <div class="item_01">
-                        <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/qu_paper.jpeg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                        <label>QUALITY A4影印紙(一箱5包)</label><br>
-                        數量: <input type="number" id="qu_paper" name="qu_paper" min="0" style="width: 50px;">箱<br>
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/glue.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>膠水(雄獅) 50cc</label><br>
+                            數量: <input type="number" id="glue" name="glue" min="0" style="width: 50px;">瓶<br>
+                        </div>
                     </div>
                 </div>
-            </div>
-   
-        </fieldset>
-        <fieldset class="memo">
-            上方所列商品，如果都沒有您要訂購的商品，請填寫在此處，我們將會為您訂購。如果訂購時有任何問題，也會與您聯繫。<br><br>
-            <textarea name="memo" id="memo" class="memo_01">備註: </textarea><br><br>
-        </fieldset>
-        <button type="submit" class="submit">提交</button>
-    </form>
+    
+                <div id="category4" class="category" style="display: none;">
+                    <h2>電池、生活用品類</h2>
+                    <div class="item">
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/battery.jpeg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>國際牌 電池(一組4入)</label><br>
+                            3號 數量: <input type="number" id="battery" name="battery" min="0" style="width: 50px;">組<br>
+                            4號 數量: <input type="number" id="battery_01" name="battery_01" min="0" style="width: 50px;">組<br>
+                        </div>
+        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/toilet_paper.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>艾多美衛生紙 一串:110抽x24包</label><br>
+                            數量: <input type="number" id="toilet_paper" name="toilet_paper" min="0" style="width: 50px;">串<br>
+                        </div>
+        
+                        <div class="item_01"></div>
+                        <div class="item_01"></div>
+                        <div class="item_01"></div>
+                    </div>
+                </div>
+       
+            </fieldset>
+            <fieldset class="memo">
+                上方所列商品，如果都沒有您要訂購的商品，請填寫在此處，我們將會為您訂購。如果訂購時有任何問題，也會與您聯繫。<br><br>
+                <textarea name="memo" id="memo" class="memo_01">備註: </textarea><br><br>
+            </fieldset>
+            <button type="submit" class="submit">提交</button>
+        </form>
+    </div>
+
+    <!-- 查詢頁 -->
+    <div id="search-page" style="display: none;">
+        <h1>查詢表單內容</h1>
+        <form id="search-form">
+            <label for="query">查詢條件（例如名字）：</label>
+            <input type="text" id="query" name="query" required>
+            <button type="submit">查詢</button>
+        </form>
+        <div id="search-results"></div>
+    </div>
+
 
     <footer>
         <h3 style="text-align: center;">謝謝您的訂購!如有疑問，請致電門市人員 TEL: 07-7519450 校內分機#3817</h3>

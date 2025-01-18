@@ -68,11 +68,17 @@ nav button:hover {
 }
 
 .choose_product {
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: bold;
     text-align: center;
     padding: 0;
     margin: 0;
+}
+
+h2{
+    text-align: center;
+    font-style: italic;
+    color: darkgreen;
 }
 
 .item {
