@@ -1,50 +1,51 @@
-//切換填寫和查詢表單內容
+// 切換填寫和查詢表單內容
 function showPage(page) {
     document.getElementById('submit-page').style.display = page === 'submit' ? 'block' : 'none';
     document.getElementById('search-page').style.display = page === 'search' ? 'block' : 'none';
 }
 
-const scriptURL = 'https://script.google.com/macros/s/AKfycbyL_HMo9bu_3iE0VT0YggBF7KfPv0OEwnqFAYHJ5k_JF11IsafjyEpCIcrdtndARja4TA/exec'; // 替換為您的 Apps Script URL
-
-    document.getElementById('search').addEventListener('click', async () => {
-      try {
-        // 發送 GET 請求到 Apps Script
-        const response = await fetch(scriptURL);
-        const data = await response.json();
-
-        // 顯示資料
-        const resultDiv = document.getElementById('search-results');
-        resultDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
-      } catch (error) {
-        console.error('Error fetching data:', error);
-        alert('無法查詢資料，請稍後再試！');
-      }
-    });
-
-// 處理表單提交
-    const form = document.getElementById('myForm');
-    form.addEventListener('submit', async (e) => {
+document.addEventListener("DOMContentLoaded", function () {
+    // 查詢功能
+    document.getElementById('search-form').addEventListener('submit', async (e) => {
         e.preventDefault();
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
+        const query = document.getElementById('query').value;
 
         try {
-            const response = await fetch('https://spin-sg6f.onrender.com', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data),
-            });
-            const result = await response.json();
-            alert(result.message);
+            const response = await fetch(`${scriptURL}?query=${encodeURIComponent(query)}`);
+            if (!response.ok) throw new Error('資料查詢失敗');
+            const data = await response.json();
 
-            // 提交成功後清空並重置表單
-            form.reset();
-
+            const resultDiv = document.getElementById('search-results');
+            resultDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
         } catch (error) {
-            console.error('Error:', error);
-            alert('Submission failed.');
+            console.error('Error fetching data:', error);
+            alert('查詢失敗，請稍後再試');
         }
-});
+    });
+
+    // 表單提交功能
+    const form = document.getElementById('myForm');
+    if (form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch('https://spin-sg6f.onrender.com', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                });
+                const result = await response.json();
+                alert(result.message);
+                form.reset();
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Submission failed.');
+            }
+        });
+    }
 
 /*表單僅於每月1日至15日開放填寫,如15日當天為星期六日,則順延至下個星期一
 document.addEventListener("DOMContentLoaded", function () {
