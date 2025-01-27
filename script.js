@@ -22,8 +22,10 @@ document.querySelector('button[onclick="showPage(\'search\')"]').addEventListene
     });
 
 // 處理表單提交
+document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('myForm');
-    form.addEventListener('submit', async (e) => {
+    if (form) {
+        form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
@@ -44,6 +46,8 @@ document.querySelector('button[onclick="showPage(\'search\')"]').addEventListene
             console.error('Error:', error);
             alert('Submission failed.');
         }
+        });
+    }
 });
 
 /*表單僅於每月1日至15日開放填寫,如15日當天為星期六日,則順延至下個星期一
