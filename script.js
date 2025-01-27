@@ -47,37 +47,23 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-/*表單僅於每月1日至15日開放填寫,如15日當天為星期六日,則順延至下個星期一
-document.addEventListener("DOMContentLoaded", function () {
-const today = new Date();
-const day = today.getDate();
-const form = document.getElementById("myForm");
-const message = document.getElementById("message");
+    /*
+    // 日期檢查功能
+    const today = new Date();
+    const day = today.getDate();
+    const fifteenth = new Date(today.getFullYear(), today.getMonth(), 15);
+    let cutoffDay = 15;
 
-// 計算本月 15 日的日期
-const fifteenth = new Date(today.getFullYear(), today.getMonth(), 15);
-let cutoffDay = 15;
+    if (fifteenth.getDay() === 6) cutoffDay = 17;
+    else if (fifteenth.getDay() === 0) cutoffDay = 16;
 
-// 如果 15 日是週六或週日，順延至 17 日
-if (fifteenth.getDay() === 6) {
-    cutoffDay = 17; // 週六 -> 順延至 17 日
-} else if (fifteenth.getDay() === 0) {
-    cutoffDay = 16; // 週日 -> 順延至 17 日
-}
-
-// 檢查當前日期是否在開放範圍內
-if (day < 1 || day > cutoffDay) {
-    form.style.display = "none"; // 隱藏表單
-    message.style.display = "block"; // 顯示提示訊息
-}
+    const message = document.getElementById("message");
+    if (day < 1 || day > cutoffDay) {
+        document.getElementById("myForm").style.display = "none";
+        message.style.display = "block";
+    } else {
+        document.getElementById("myForm").style.display = "block";
+        message.style.display = "none";
+    }
+    */
 });
-*/
-
-// 顯示特定分類的商品，隱藏其他分類
-function showCategory(categoryId) {
-    const categories = document.querySelectorAll('.category');
-    categories.forEach(category => {
-        category.style.display = 'none';
-    });
-    document.getElementById(categoryId).style.display = 'block';
-}
