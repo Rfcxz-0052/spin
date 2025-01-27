@@ -29,187 +29,45 @@ document.addEventListener('DOMContentLoaded', function () {
                 // 根據返回的資料更新結果顯示
                 if (Array.isArray(data) && data.length > 0) {
                     // 生成表格
-                    let tableHTML = `
-                        <table border="1" style="width: 100%; border-collapse: collapse; text-align: center;">
-                            <thead>
-                                <tr>
-                                    <th>時間</th>
-                                    <th>姓名</th>
-                                    <th>聯絡方式</th>
-                                    <th>所屬單位</th>
-                                    <th>Email</th>
-                                    <th>2B 鉛筆</th>									
-                                    <th>HB 鉛筆</th>
-                                    <th>雙頭油性筆_紅</th>
-                                    <th>雙頭油性筆_藍</th>
-                                    <th>雙頭油性筆_黑</th>
-                                    <th>簽字筆1.0mm_紅</th>
-                                    <th>簽字筆1.0mm_藍</th>
-                                    <th>簽字筆1.0mm_黑</th>
-                                    <th>原子筆(刻字)_紅</th>
-                                    <th>原子筆(刻字)_藍</th>
-                                    <th>原子筆(刻字)_黑</th>
-                                    <th>細字簽字筆0.5mm_紅</th>
-                                    <th>細字簽字筆0.5mm_藍</th>
-                                    <th>細字簽字筆0.5mm_黑</th>
-                                    <th>白板筆_紅</th>
-                                    <th>白板筆_藍</th>
-                                    <th>白板筆_黑</th>
-                                    <th>白板筆補充液_紅</th>
-                                    <th>白板筆補充液_藍</th>									
-                                    <th>白板筆補充液_黑</th>
-                                    <th>美工刀</th>
-                                    <th>板擦</th>
-                                    <th>橡皮擦</th>
-                                    <th>SDI修正帶 橘色</th>
-                                    <th>SDI修正帶 藍色</th>
-                                    <th>SDI修正帶 綠色</th>
-                                    <th>SDI修正帶替芯 橘色</th>
-                                    <th>SDI修正帶替芯 藍色</th>
-                                    <th>SDI修正帶替芯 綠色</th>
-                                    <th>打印台紅色</th>
-                                    <th>打印台藍色</th>
-                                    <th>打印台黑色</th>									
-                                    <th>打印水紅色</th>
-                                    <th>打印水藍色</th>
-                                    <th>打印水黑色</th>
-                                    <th>印泥</th>
-                                    <th>利百代 明色朱液</th>
-                                    <th>自動印章補充液紅色</th>
-                                    <th>自動印章補充液藍色</th>
-                                    <th>自動印章補充液黑色</th>
-                                    <th>便利貼小</th>
-                                    <th>便利貼中</th>
-                                    <th>便利貼大</th>	
-                                    <th>日期戳</th>
-                                    <th>號碼機油</th>
-                                    <th>釘書機</th>
-                                    <th>釘書針3號</th>
-                                    <th>釘書針10號</th>
-                                    <th>三角迴紋針</th>
-                                    <th>圖釘</th>
-                                    <th>剪刀</th>
-                                    <th>膠水</th>
-                                    <th>口紅膠</th>
-                                    <th>封箱膠帶</th>
-                                    <th>透明膠帶-大</th>
-                                    <th>透明膠帶-小</th>									
-                                    <th>雙面膠帶</th>
-                                    <th>橡皮圈大</th>
-                                    <th>橡皮圈小</th>
-                                    <th>長尾夾小</th>
-                                    <th>長尾夾中</th>
-                                    <th>長尾夾大</th>
-                                    <th>自黏標籤小</th>
-                                    <th>自黏標籤中</th>
-                                    <th>自黏標籤大</th>
-                                    <th>粉筆 白色</th>
-                                    <th>粉筆 黃色</th>
-                                    <th>粉筆 紅色</th>
-                                    <th>粉筆 綠色</th>
-                                    <th>電池3號</th>
-                                    <th>電池4號</th>
-                                    <th>衛生紙</th>
-                                    <th>Double A A4影印紙</th>
-                                    <th>QUALITY A4影印紙</th>
-                                    <th>備註</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                    `;
-                    // 遍歷資料並生成表格行
-                    data.forEach((item) => {
-                        tableHTML += `
-                            <tr>
-                                <td>${item['時間'] || ''}</td>
-                                <td>${item['姓名'] || ''}</td>
-                                <td>${item['聯絡方式'] || ''}</td>
-                                <td>${item['所屬單位'] || ''}</td>
-                                <td>${item['email'] || ''}</td>
-                                <td>${item['2B 鉛筆'] || ''}</td>
-                                <td>${item['HB 鉛筆'] || ''}</td>
-                                <td>${item['雙頭油性筆_紅'] || ''}</td>
-                                <td>${item['雙頭油性筆_藍'] || ''}</td>
-                                <td>${item['雙頭油性筆_黑'] || ''}</td>
-                                <td>${item['簽字筆1.0mm_紅'] || ''}</td>
-                                <td>${item['簽字筆1.0mm_藍'] || ''}</td>
-                                <td>${item['簽字筆1.0mm_黑'] || ''}</td>
-                                <td>${item['原子筆(刻字)_紅'] || ''}</td>
-                                <td>${item['原子筆(刻字)_藍'] || ''}</td>
-                                <td>${item['原子筆(刻字)_黑'] || ''}</td>
-                                <td>${item['細字簽字筆0.5mm_紅'] || ''}</td>
-                                <td>${item['細字簽字筆0.5mm_藍'] || ''}</td>								
-                                <td>${item['細字簽字筆0.5mm_黑'] || ''}</td>
-                                <td>${item['白板筆_紅'] || ''}</td>
-                                <td>${item['白板筆_藍'] || ''}</td>
-                                <td>${item['白板筆_黑'] || ''}</td>
-                                <td>${item['白板筆補充液_紅'] || ''}</td>
-                                <td>${item['白板筆補充液_藍'] || ''}</td>
-                                <td>${item['白板筆補充液_黑'] || ''}</td>
-                                <td>${item['美工刀'] || ''}</td>
-                                <td>${item['板擦'] || ''}</td>
-                                <td>${item['橡皮擦'] || ''}</td>
-                                <td>${item['SDI修正帶 橘色'] || ''}</td>
-                                <td>${item['SDI修正帶 藍色'] || ''}</td>
-                                <td>${item['SDI修正帶 綠色'] || ''}</td>
-                                <td>${item['SDI修正帶替芯 橘色'] || ''}</td>
-                                <td>${item['SDI修正帶替芯 藍色'] || ''}</td>
-                                <td>${item['SDI修正帶替芯 綠色'] || ''}</td>
-                                <td>${item['打印台紅色'] || ''}</td>
-                                <td>${item['打印台藍色'] || ''}</td>
-                                <td>${item['打印台黑色'] || ''}</td>
-                                <td>${item['打印水紅色'] || ''}</td>
-                                <td>${item['打印水藍色'] || ''}</td>
-                                <td>${item['打印水黑色'] || ''}</td>
-                                <td>${item['印泥'] || ''}</td>
-                                <td>${item['利百代 明色朱液'] || ''}</td>
-                                <td>${item['自動印章補充液紅色'] || ''}</td>
-                                <td>${item['自動印章補充液藍色'] || ''}</td>
-                                <td>${item['自動印章補充液黑色'] || ''}</td>
-                                <td>${item['便利貼小'] || ''}</td>
-                                <td>${item['便利貼中'] || ''}</td>
-                                <td>${item['便利貼大'] || ''}</td>
-                                <td>${item['日期戳'] || ''}</td>
-                                <td>${item['號碼機油'] || ''}</td>
-                                <td>${item['釘書機'] || ''}</td>
-                                <td>${item['釘書針3號'] || ''}</td>
-                                <td>${item['釘書針10號'] || ''}</td>
-                                <td>${item['三角迴紋針'] || ''}</td>
-                                <td>${item['圖釘'] || ''}</td>
-                                <td>${item['剪刀'] || ''}</td>
-                                <td>${item['膠水'] || ''}</td>
-                                <td>${item['口紅膠'] || ''}</td>								
-                                <td>${item['封箱膠帶'] || ''}</td>
-                                <td>${item['透明膠帶-大'] || ''}</td>
-                                <td>${item['透明膠帶-小'] || ''}</td>
-                                <td>${item['雙面膠帶'] || ''}</td>
-                                <td>${item['橡皮圈大'] || ''}</td>
-                                <td>${item['橡皮圈小'] || ''}</td>
-                                <td>${item['長尾夾小'] || ''}</td>	
-                                <td>${item['長尾夾中'] || ''}</td>
-                                <td>${item['長尾夾大'] || ''}</td>
-                                <td>${item['自黏標籤小'] || ''}</td>
-                                <td>${item['自黏標籤中'] || ''}</td>
-                                <td>${item['自黏標籤大'] || ''}</td>
-                                <td>${item['粉筆 白色'] || ''}</td>	
-                                <td>${item['粉筆 黃色'] || ''}</td>	
-                                <td>${item['粉筆 紅色'] || ''}</td>
-                                <td>${item['粉筆 綠色'] || ''}</td>
-                                <td>${item['電池3號'] || ''}</td>
-                                <td>${item['電池4號'] || ''}</td>
-                                <td>${item['衛生紙'] || ''}</td>
-                                <td>${item['Double A A4影印紙'] || ''}</td>	
-                                <td>${item['QUALITY A4影印紙'] || ''}</td>	
-                                <td>${item['備註'] || ''}</td>
-                            </tr>
-                        `;
+                    const headers = [
+                        '時間', '姓名', '聯絡方式', '所屬單位', 'Email', 
+                        '2B 鉛筆', 'HB 鉛筆', '雙頭油性筆_紅', '雙頭油性筆_藍', '雙頭油性筆_黑',
+                        '簽字筆1.0mm_紅', '簽字筆1.0mm_藍', '簽字筆1.0mm_黑',
+                        '原子筆(刻字)_紅', '原子筆(刻字)_藍', '原子筆(刻字)_黑', 
+                        '細字簽字筆0.5mm_紅', '細字簽字筆0.5mm_藍', '細字簽字筆0.5mm_黑', 
+                        '白板筆_紅', '白板筆_藍', '白板筆_黑', 
+                        '白板筆補充液_紅', '白板筆補充液_藍', '白板筆補充液_黑', 
+                        '美工刀', '板擦', '橡皮擦',
+                        'SDI修正帶 橘色', 'SDI修正帶 藍色', 'SDI修正帶 綠色', 
+                        'SDI修正帶替芯 橘色', 'SDI修正帶替芯 藍色', 'SDI修正帶替芯 綠色', 
+                        '打印台紅色', '打印台藍色', '打印台黑色', 
+                        '打印水紅色', '打印水藍色', '打印水黑色', 
+                        '印泥', '利百代 明色朱液', '自動印章補充液紅色', '自動印章補充液藍色', '自動印章補充液黑色', 
+                        '便利貼小', '便利貼中', '便利貼大', '日期戳', '號碼機油', 
+                        '釘書機', '釘書針3號', '釘書針10號', '三角迴紋針', '圖釘', 
+                        '膠水', '口紅膠', '封箱膠帶', '透明膠帶-大', '透明膠帶-小', 									
+                        '雙面膠帶', '橡皮圈大', '橡皮圈小', 
+                        '長尾夾小', '長尾夾中', '長尾夾大', 
+                        '自黏標籤小', '自黏標籤中', '自黏標籤大', 
+                        '粉筆 白色', '粉筆 黃色', '粉筆 紅色', '粉筆 綠色', 
+                        '電池3號', '電池4號', '衛生紙', 
+                        'Double A A4影印紙', 'QUALITY A4影印紙', '備註'
+                    ];
+                    
+                    let tableHTML = `<table border="1" style="width: 100%; border-collapse: collapse; text-align: center;"><thead><tr>`;
+                    headers.forEach(header => {
+                        tableHTML += `<th>${header}</th>`;
                     });
-                    tableHTML += `
-                            </tbody>
-                        </table>
-                    `;
-
-                    resultDiv.innerHTML = tableHTML; // 將表格插入到結果區域
+                    tableHTML += `</tr></thead><tbody>`;
+                    
+                    data.forEach(item => {
+                        tableHTML += `<tr>`;
+                        headers.forEach(header => {
+                            tableHTML += `<td>${item[header] || ''}</td>`;
+                        });
+                        tableHTML += `</tr>`;
+                    });
+                    tableHTML += `</tbody></table>`;
                 } else {
                     resultDiv.innerHTML = '<p>無符合條件的結果。</p>';
                 }
