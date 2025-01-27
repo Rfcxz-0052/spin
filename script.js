@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             try {
                 // 將查詢條件作為參數附加到 Apps Script 的 URL
-                const response = await fetch(`${scriptURL}?query=${encodeURIComponent(query)}`);
+                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbyL_HMo9bu_3iE0VT0YggBF7KfPv0OEwnqFAYHJ5k_JF11IsafjyEpCIcrdtndARja4TA/exec"}?query=${encodeURIComponent(query)}`);
                 if (!response.ok) {
                     throw new Error('查詢失敗，請稍後再試！');
                 }
