@@ -1,4 +1,4 @@
-//切換填寫和查詢表單內容
+// 切換填寫和查詢表單內容
 function showPage(page) {
     document.getElementById('submit-page').style.display = page === 'submit' ? 'block' : 'none';
     document.getElementById('search-page').style.display = page === 'search' ? 'block' : 'none';
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             try {
                 // 將查詢條件作為參數附加到 Apps Script 的 URL
-                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbz8U4Z1FyJbskljqr8K_gfwPlwiu5Lwd1SLVgCdtx3PRP-vx6_ZNZFXt5KUaf-c8_9naw/exec"}?query=${encodeURIComponent(query)}`);
+                const response = await fetch(`${"https://script.google.com/macros/s/AKfycby7_ouHAVrQaob5iXupyX8rEzecJl_EOwR4DRtD05NEY-E5evvhXwQg-Lywswh8AfCQlA/exec"}?query=${encodeURIComponent(query)}`);
                 if (!response.ok) {
                     throw new Error('查詢失敗，請稍後再試！');
                 }
@@ -27,25 +27,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 const resultDiv = document.getElementById('search-results'); // 獲取顯示結果的區域
 
                 // 根據返回的資料更新結果顯示
-                if (Array.isArray(data) && data.length > 0) {
-                // 生成垂直列表
-                let tableHTML = '';
-                data.forEach((item, index) => {
-                    tableHTML += `
-                        <div style="border: 1px solid #ccc; margin-bottom: 10px; padding: 10px; border-radius: 5px;">
-                            <p><strong>資料 ${index + 1}</strong></p>
-                    `;
-                    for (const [key, value] of Object.entries(item)) {
-                        tableHTML += `
-                            <p><strong>${key}：</strong>${value || ''}</p>
-                        `;
-                    }
-                    tableHTML += `</div>`;
-                });
-
-    resultDiv.innerHTML = tableHTML; // 將結果插入到結果區域
+                if (data.message) {
+                    resultDiv.innerHTML = `<p>${data.message}</p>`;
                 } else {
-    resultDiv.innerHTML = '<p>無符合條件的結果。</p>';
+                    // 顯示該人名對應的所有資料
+                    let tableHTML = '<div style="border: 1px solid #ccc; margin-bottom: 10px; padding: 10px; border-radius: 5px;">';
+                    for (const [key, value] of Object.entries(data)) {
+                        tableHTML += `<p><strong>${key}：</strong>${value || ''}</p>`;
+                    }
+                    tableHTML += '</div>';
+                    resultDiv.innerHTML = tableHTML; // 顯示查詢結果
                 }
             } catch (error) {
                 console.error('Error:', error); // 在控制台顯示錯誤訊息
