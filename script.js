@@ -25,7 +25,7 @@ document.querySelector('button[onclick="showPage(\'search\')"]').addEventListene
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('myForm');
     if (form) {
-        form.addEventListener('submit_01', async (e) => {
+        form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
