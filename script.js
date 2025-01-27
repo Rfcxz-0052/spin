@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             try {
                 // 將查詢條件作為參數附加到 Apps Script 的 URL
-                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbyL_HMo9bu_3iE0VT0YggBF7KfPv0OEwnqFAYHJ5k_JF11IsafjyEpCIcrdtndARja4TA/exec"}?query=${encodeURIComponent(query)}`);
+                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbyHLHmugSRslpdr_CLPf4WBkwrrTzXHsxuiMu42rAD1qcaEOhW54Zk-jiIbLIFGmrhmtg/exec"}?query=${encodeURIComponent(query)}`);
                 if (!response.ok) {
                     throw new Error('查詢失敗，請稍後再試！');
                 }
@@ -27,22 +27,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 const resultDiv = document.getElementById('search-results'); // 獲取顯示結果的區域
 
                 // 根據返回的資料更新結果顯示
-                // 根據返回的資料更新結果顯示
                 if (Array.isArray(data) && data.length > 0) {
-    // 生成垂直列表
-    let tableHTML = '';
-    data.forEach((item, index) => {
-        tableHTML += `
-            <div style="border: 1px solid #ccc; margin-bottom: 10px; padding: 10px; border-radius: 5px;">
-                <p><strong>資料 ${index + 1}</strong></p>
-        `;
-        for (const [key, value] of Object.entries(item)) {
-            tableHTML += `
-                <p><strong>${key}：</strong>${value || ''}</p>
-            `;
-        }
-        tableHTML += `</div>`;
-    });
+                // 生成垂直列表
+                let tableHTML = '';
+                data.forEach((item, index) => {
+                    tableHTML += `
+                        <div style="border: 1px solid #ccc; margin-bottom: 10px; padding: 10px; border-radius: 5px;">
+                            <p><strong>資料 ${index + 1}</strong></p>
+                    `;
+                    for (const [key, value] of Object.entries(item)) {
+                        tableHTML += `
+                            <p><strong>${key}：</strong>${value || ''}</p>
+                        `;
+                    }
+                    tableHTML += `</div>`;
+                });
 
     resultDiv.innerHTML = tableHTML; // 將結果插入到結果區域
                 } else {
@@ -112,6 +111,8 @@ if (day < 1 || day > cutoffDay) {
 });
 */
 
+// 預設顯示第一個分類
+showCategory('category1');
 // 顯示特定分類的商品，隱藏其他分類
 function showCategory(categoryId) {
     const categories = document.querySelectorAll('.category');
