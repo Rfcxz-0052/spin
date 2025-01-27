@@ -4,22 +4,43 @@ function showPage(page) {
     document.getElementById('search-page').style.display = page === 'search' ? 'block' : 'none';
 }
 
-const scriptURL = 'https://script.google.com/macros/s/AKfycbyL_HMo9bu_3iE0VT0YggBF7KfPv0OEwnqFAYHJ5k_JF11IsafjyEpCIcrdtndARja4TA/exec'; // 替換為您的 Apps Script URL
+document.addEventListener('DOMContentLoaded', function () {
+    const searchForm = document.getElementById('search-form'); // 獲取查詢表單
+    if (searchForm) {
+        searchForm.addEventListener('submit', async (e) => {
+            e.preventDefault(); // 阻止表單的默認提交行為
+            
+            const query = document.getElementById('query').value.trim(); // 獲取輸入的查詢條件
+            if (!query) {
+                alert('請輸入查詢條件！');
+                return;
+            }
 
-document.querySelector('button[onclick="showPage(\'search\')"]').addEventListener('click', async () => {
-      try {
-        // 發送 GET 請求到 Apps Script
-        const response = await fetch(scriptURL);
-        const data = await response.json();
+            try {
+                // 將查詢條件作為參數附加到 Apps Script 的 URL
+                const response = await fetch(`${scriptURL}?query=${encodeURIComponent(query)}`);
+                if (!response.ok) {
+                    throw new Error('查詢失敗，請稍後再試！');
+                }
 
-        // 顯示資料
-        const resultDiv = document.getElementById('search-results');
-        resultDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
-      } catch (error) {
-        console.error('Error fetching data:', error);
-        alert('無法查詢資料，請稍後再試！');
-      }
-    });
+                const data = await response.json(); // 將返回的資料解析為 JSON
+                const resultDiv = document.getElementById('search-results'); // 獲取顯示結果的區域
+
+                // 根據返回的資料更新結果顯示
+                if (Array.isArray(data) && data.length > 0) {
+                    resultDiv.innerHTML = data
+                        .map((item) => `<div>${JSON.stringify(item)}</div>`)
+                        .join(''); // 使用 JSON.stringify 顯示結果
+                } else {
+                    resultDiv.innerHTML = '<p>無符合條件的結果。</p>';
+                }
+            } catch (error) {
+                console.error('Error:', error); // 在控制台顯示錯誤訊息
+                alert('查詢失敗，請稍後再試！');
+            }
+        });
+    }
+});
 
 // 處理表單提交
 document.addEventListener('DOMContentLoaded', function () {
