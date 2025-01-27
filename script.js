@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             try {
                 // 將查詢條件作為參數附加到 Apps Script 的 URL
-                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbyHLHmugSRslpdr_CLPf4WBkwrrTzXHsxuiMu42rAD1qcaEOhW54Zk-jiIbLIFGmrhmtg/exec"}?query=${encodeURIComponent(query)}`);
+                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbz8U4Z1FyJbskljqr8K_gfwPlwiu5Lwd1SLVgCdtx3PRP-vx6_ZNZFXt5KUaf-c8_9naw/exec"}?query=${encodeURIComponent(query)}`);
                 if (!response.ok) {
                     throw new Error('查詢失敗，請稍後再試！');
                 }
