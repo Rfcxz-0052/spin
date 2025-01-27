@@ -6,7 +6,7 @@ function showPage(page) {
 
 const scriptURL = 'https://script.google.com/macros/s/AKfycbyL_HMo9bu_3iE0VT0YggBF7KfPv0OEwnqFAYHJ5k_JF11IsafjyEpCIcrdtndARja4TA/exec'; // 替換為您的 Apps Script URL
 
-    document.getElementById('search').addEventListener('click', async () => {
+document.querySelector('button[onclick="showPage(\'search\')"]').addEventListener('click', async () => {
       try {
         // 發送 GET 請求到 Apps Script
         const response = await fetch(scriptURL);
