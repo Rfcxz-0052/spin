@@ -12,12 +12,12 @@ document.addEventListener('DOMContentLoaded', function () {
             e.preventDefault();
             const query = document.getElementById('query').value.trim();
             if (!query) {
-                alert('請輸入查詢條件！');
+                alert('請輸入查詢的人名！');
                 return;
             }
 
             try {
-                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbzN2XLRnDrh7y2NoWUdEW3DViKyHo8VXtojbl8KqGmWYMe7EnQ7lZLuNleMUTsUgJgUyw/exec"}?query=${encodeURIComponent(query)}`);
+                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbzDlgpKksAGdfQ4OMIJ3wVk9Yuz9wlYrSVj25w8LgXeBA8UGbj2SMhEmwJLljOZZ-jX1w/exec"}?query=${encodeURIComponent(query)}`);
                 if (!response.ok) {
                     throw new Error('查詢失敗，請稍後再試！');
                 }
@@ -25,21 +25,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 const data = await response.json();
                 const resultDiv = document.getElementById('search-results');
                 if (Array.isArray(data) && data.length > 0) {
-                    // 動態生成表格
-                    const headers = Object.keys(data[0]);
                     let tableHTML = `
                         <table border="1" style="width: 100%; border-collapse: collapse; text-align: center;">
                             <thead>
                                 <tr>
-                                    ${headers.map(header => `<th>${header}</th>`).join('')}
+                                    ${Object.keys(data[0]).map(header => `<th>${header}</th>`).join('')}
                                 </tr>
                             </thead>
                             <tbody>
-                                ${data.map(row => `
-                                    <tr>
-                                        ${headers.map(header => `<td>${row[header] || ''}</td>`).join('')}
-                                    </tr>
-                                `).join('')}
+                                <tr>
+                                    ${Object.values(data).map(item => `<td>${item[Object.keys(item)[0]] || ''}</td>`).join('')}
+                                </tr>
                             </tbody>
                         </table>
                     `;
