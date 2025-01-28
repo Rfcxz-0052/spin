@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             try {
                 // 將查詢條件作為參數附加到 Apps Script 的 URL
-                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbzd-oGSlpcLxsUnEUHuaxzOd4TfLXP63Gqa4YXWaTl6MBGHMujiPdB_rtL4dPDcTvc2wA/exec"}?query=${encodeURIComponent(query)}`);
+                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbzU9Z-K9aZyP193YpnIqAx_EdJPPhOomGRGiVnI7PzUCcAvNb_UwQ9uclYbb0F-POn02Q/exec"}?query=${encodeURIComponent(query)}`);
                 if (!response.ok) {
                     throw new Error('查詢失敗，請稍後再試！');
                 }
@@ -28,21 +28,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // 根據返回的資料更新結果顯示
                 if (Array.isArray(data) && data.length > 0) {
+                    // 轉置資料，讓每列變成每行
+                    const transposedData = data[0].map((_, colIndex) =>
+                        data.map(row => row[colIndex] || '')
+                    );
+
+                    // 動態生成表格
                     let tableHTML = `
-                        <table border="1" style="width: 100%; border-collapse: collapse; text-align: center;">
+                        <table border="1" style="width: 100%; border-collapse: collapse; text-align: left;">
                             <thead>
                                 <tr>
+                                    <th>標題</th>
+                                    <th>訂單1</th>
+                                    <th>訂單2</th>
+                                </tr>
+                            </thead>
+                            <tbody>
                     `;
                 
-                    // 表格標題行
-                    data[0].forEach(header => {
-                        tableHTML += `<th>${header || ''}</th>`;
-                    });
-                
-                    tableHTML += `</tr></thead><tbody>`;
-                
                     // 表格內容行
-                    data.slice(1).forEach(row => {
+                    transposedData.forEach(row => {
                         tableHTML += '<tr>';
                         row.forEach(cell => {
                             tableHTML += `<td>${cell || ''}</td>`;
@@ -63,6 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
 
 // 處理表單提交
 document.addEventListener('DOMContentLoaded', function () {
