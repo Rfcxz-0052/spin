@@ -5,10 +5,7 @@ function showPage(page) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwhn0Uz0XG5mAU9LN14EMZDIXYre5iQEaBDITENWVAthbsL8b33P4cvFuer5ttD3AGxBA/exec";
     const searchForm = document.getElementById('search-form'); // 獲取查詢表單
-    const resultDiv = document.getElementById('search-results'); // 顯示結果的區域
-
     if (searchForm) {
         searchForm.addEventListener('submit', async (e) => {
             e.preventDefault(); // 阻止表單的默認提交行為
@@ -20,21 +17,19 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             try {
-                // 顯示加載提示
-                resultDiv.innerHTML = '<p>加載中...</p>';
-
-                // 向 Apps Script 發送請求
-                const response = await fetch(`${SCRIPT_URL}?query=${encodeURIComponent(query)}`);
+                // 將查詢條件作為參數附加到 Apps Script 的 URL
+                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbxwSYnNITT3o-uSK1yks3TSImCpCr5T0Y_c9cuQwRRN66eBZlUbv_5e-J3Plp_pWqbnBQ/exec"}?query=${encodeURIComponent(query)}`);
                 if (!response.ok) {
                     throw new Error('查詢失敗，請稍後再試！');
                 }
 
-                const data = await response.json(); // 解析返回的 JSON 資料
+                const data = await response.json(); // 將返回的資料解析為 JSON
+                const resultDiv = document.getElementById('search-results'); // 獲取顯示結果的區域
 
                 // 根據返回的資料更新結果顯示
                 if (Array.isArray(data) && data.length > 0) {
                     let tableHTML = `
-                        <table id="result-table" class="result-table" border="1">
+                        <table border="1" style="width: 100%; border-collapse: collapse; text-align: center;">
                             <thead>
                                 <tr>
                     `;
@@ -68,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
 
 // 處理表單提交
 document.addEventListener('DOMContentLoaded', function () {
