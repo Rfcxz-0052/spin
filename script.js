@@ -4,6 +4,7 @@ function showPage(page) {
     document.getElementById('search-page').style.display = page === 'search' ? 'block' : 'none';
 }
 
+// 處理表單查詢
 document.addEventListener('DOMContentLoaded', function () {
     const searchForm = document.getElementById('search-form'); // 獲取查詢表單
     if (searchForm) {
@@ -18,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             try {
                 // 將查詢條件作為參數附加到 Apps Script 的 URL
-                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbyDiM96bb35BfSOKbZZYi5ji-cEDCMrDu5dq8GzwP6YgoJHnHfvB6VACRAojxWh6MvbxA/exec"}?query=${encodeURIComponent(query)}`);
+                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbwnXnKBP1JFnsETmtUtIw5Pd6pUX8LluAHiaKjVq62gdxH_L0mvo_u7-QnsjztQPs6CTA/exec"}?query=${encodeURIComponent(query)}`);
                 if (!response.ok) {
                     throw new Error('查詢失敗，請稍後再試！');
                 }
@@ -28,25 +29,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // 根據返回的資料更新結果顯示
                 if (Array.isArray(data) && data.length > 0) {
+                    // 動態生成表格，垂直展開資料
                     let tableHTML = `
                         <table border="1" style="width: 100%; border-collapse: collapse; text-align: center;">
                             <thead>
                                 <tr>
                                     <th>欄位名稱</th>
-                                    <th>對應值1</th>
-                                    <th>對應值2</th>
-                                    <!-- 根據實際需要可以動態增加更多列 -->
-                                </tr>
-                            </thead>
-                            <tbody>
                     `;
 
-                    // 表格內容
+                    // 根據返回資料的列動態生成對應的表頭
+                    const maxCols = data[0].length - 1; // 除去欄位名稱
+                    for (let i = 1; i <= maxCols; i++) {
+                        tableHTML += `<th>對應值${i}</th>`;
+                    }
+
+                    tableHTML += `</tr></thead><tbody>`;
+
+                    // 生成表格的每一行
                     data.forEach(row => {
                         tableHTML += `
                             <tr>
-                                <td>${row[0] || ''}</td>
-                                ${row.slice(1).map(item => `<td>${item || ''}</td>`).join('')}
+                                <td>${row[0] || ''}</td> <!-- 顯示欄位名稱 -->
+                                ${row.slice(1).map(value => `<td>${value || ''}</td>`).join('')}
                             </tr>
                         `;
                     });
@@ -64,8 +68,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
-
-
 
 // 處理表單提交
 document.addEventListener('DOMContentLoaded', function () {
