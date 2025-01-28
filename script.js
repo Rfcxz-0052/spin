@@ -43,11 +43,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 
                     // 表格內容行
                     data.slice(1).forEach(row => {
-                        tableHTML += '<tr>';
+                        tableHTML += '<td>';
                         row.forEach(cell => {
-                            tableHTML += `<td>${cell || ''}</td>`;
+                            tableHTML += `<tr style="display: inline-block;">${cell || ''}</tr>`;
                         });
-                        tableHTML += '</tr>';
+                        tableHTML += '</td>';
                     });
                 
                     tableHTML += `</tbody></table>`;
