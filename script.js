@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             try {
                 // 將查詢條件作為參數附加到 Apps Script 的 URL
-                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbzU9Z-K9aZyP193YpnIqAx_EdJPPhOomGRGiVnI7PzUCcAvNb_UwQ9uclYbb0F-POn02Q/exec"}?query=${encodeURIComponent(query)}`);
+                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbzd-oGSlpcLxsUnEUHuaxzOd4TfLXP63Gqa4YXWaTl6MBGHMujiPdB_rtL4dPDcTvc2wA/exec"}?query=${encodeURIComponent(query)}`);
                 if (!response.ok) {
                     throw new Error('查詢失敗，請稍後再試！');
                 }
@@ -39,11 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         tableHTML += `<th>${header || ''}</th>`;
                     });
                 
-                    tableHTML += `
-                                </tr>
-                            </thead>
-                            <tbody>
-                    `;
+                    tableHTML += `</tr></thead><tbody>`;
                 
                     // 表格內容行
                     data.slice(1).forEach(row => {
@@ -54,11 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         tableHTML += '</tr>';
                     });
                 
-                    tableHTML += `
-                            </tbody>
-                        </table>
-                    `;
-                
+                    tableHTML += `</tbody></table>`;
                     resultDiv.innerHTML = tableHTML; // 顯示結果表格
                 } else {
                     resultDiv.innerHTML = '<p>無符合條件的結果。</p>';
