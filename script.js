@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             try {
                 // 將查詢條件作為參數附加到 Apps Script 的 URL
-                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbzd-oGSlpcLxsUnEUHuaxzOd4TfLXP63Gqa4YXWaTl6MBGHMujiPdB_rtL4dPDcTvc2wA/exec"}?query=${encodeURIComponent(query)}`);
+                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbxwSYnNITT3o-uSK1yks3TSImCpCr5T0Y_c9cuQwRRN66eBZlUbv_5e-J3Plp_pWqbnBQ/exec"}?query=${encodeURIComponent(query)}`);
                 if (!response.ok) {
                     throw new Error('查詢失敗，請稍後再試！');
                 }
@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
 
 // 處理表單提交
 document.addEventListener('DOMContentLoaded', function () {
