@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             try {
                 // 將查詢條件作為參數附加到 Apps Script 的 URL
-                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbzqWV7zUVJ1iWNiuLo_lIc7kz85QTia_lXtOPq8YIcouurVNAbsREb1XsO-yGQJpSYdMA/exec"}?query=${encodeURIComponent(query)}`);
+                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbxAnXrm3UPOWqxgV61NbGpJBXcIX4smHqpzgdObIf3AqemYtKDhp4Yj2xLk66mrICIqyw/exec"}?query=${encodeURIComponent(query)}`);
                 if (!response.ok) {
                     throw new Error('查詢失敗，請稍後再試！');
                 }
@@ -28,37 +28,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // 根據返回的資料更新結果顯示
                 if (Array.isArray(data) && data.length > 0) {
-                    // 建立表格
-                    let tableHTML = `
-                        <table border="1" style="width: 100%; border-collapse: collapse; text-align: center;">
-                            <thead>
-                                <tr>
-                                    <th>標題</th>
-                                    <th>值</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                    `;
+                    let tableHTML = ``;
                 
-                    // 遍歷資料，生成表格行
-                    data.forEach(item => {
+                    // 遍歷每個匹配的欄位
+                    data.forEach(column => {
                         tableHTML += `
-                            <tr>
-                                <td>${item.header}</td>
-                                <td>${item.value}</td>
-                            </tr>
+                            <h3>第 ${column.columnIndex} 欄</h3>
+                            <table border="1" style="width: 100%; border-collapse: collapse; text-align: center;">
+                                <thead>
+                                    <tr>
+                                        <th>標題</th>
+                                        <th>值</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                        `;
+                
+                        // 將該欄的資料生成表格行
+                        column.data.forEach((value, rowIndex) => {
+                            tableHTML += `
+                                <tr>
+                                    <td>第 ${rowIndex + 1} 行</td>
+                                    <td>${value || ''}</td>
+                                </tr>
+                            `;
+                        });
+                
+                        tableHTML += `
+                                </tbody>
+                            </table>
                         `;
                     });
                 
-                    tableHTML += `
-                            </tbody>
-                        </table>
-                    `;
-                
-                    resultDiv.innerHTML = tableHTML; // 更新結果區域
+                    resultDiv.innerHTML = tableHTML; // 更新結果顯示
                 } else {
                     resultDiv.innerHTML = '<p>無符合條件的結果。</p>';
-                }
+                }                
             } catch (error) {
                 console.error('Error:', error); // 在控制台顯示錯誤訊息
                 alert('查詢失敗，請稍後再試！');
