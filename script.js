@@ -4,6 +4,12 @@ function showPage(page) {
     document.getElementById('search-page').style.display = page === 'search' ? 'block' : 'none';
 }
 
+// 切換填寫和查詢表單內容
+function showPage(page) {
+    document.getElementById('submit-page').style.display = page === 'submit' ? 'block' : 'none';
+    document.getElementById('search-page').style.display = page === 'search' ? 'block' : 'none';
+}
+
 // 查詢表單提交處理
 document.addEventListener('DOMContentLoaded', function () {
     const searchForm = document.getElementById('search-form');
@@ -17,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             try {
-                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbzDyi7J6iIbgOqkCq_y07sDkiej5ql1C7b4KIl5SuqHzFoaKLpDbrpo5ualJcG_JNRM/exec"}?query=${encodeURIComponent(query)}`);
+                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbzxBDf333vDqpvWI4wqyhFtGVuVqSnxcTKcjL1hcuk3_yRv10QeswkCLdFAb4g824T48Q/exec"}?query=${encodeURIComponent(query)}`);
                 if (!response.ok) {
                     throw new Error('查詢失敗，請稍後再試！');
                 }
@@ -30,28 +36,35 @@ document.addEventListener('DOMContentLoaded', function () {
                         <table border="1" style="width: 100%; border-collapse: collapse; text-align: center;">
                             <thead>
                                 <tr>
-                                    <th>標題</th>
-                                    <th>值</th>
-                                </tr>
-                            </thead>
-                            <tbody>
                     `;
-                
+
+                    // 動態生成表格標題行
+                    if (data.length > 0) {
+                        Object.keys(data[0]).forEach(header => {
+                            tableHTML += `<th>${header}</th>`;
+                        });
+                    }
+                    
+                    tableHTML += `
+                            </tr>
+                        </thead>
+                        <tbody>
+                    `;
+
                     // 遍歷資料，生成表格行
                     data.forEach(item => {
-                        tableHTML += `
-                            <tr>
-                                <td>${item.header}</td>
-                                <td>${item.value}</td>
-                            </tr>
-                        `;
+                        tableHTML += `<tr>`;
+                        Object.values(item).forEach(value => {
+                            tableHTML += `<td>${value}</td>`;
+                        });
+                        tableHTML += `</tr>`;
                     });
-                
+
                     tableHTML += `
-                            </tbody>
-                        </table>
+                        </tbody>
+                    </table>
                     `;
-                
+                    
                     resultDiv.innerHTML = tableHTML; // 更新結果區域
                 } else {
                     resultDiv.innerHTML = '<p>無符合條件的結果。</p>';
@@ -63,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
 
 
 
