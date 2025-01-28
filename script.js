@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             try {
                 // 將查詢條件作為參數附加到 Apps Script 的 URL
-                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbxwSYnNITT3o-uSK1yks3TSImCpCr5T0Y_c9cuQwRRN66eBZlUbv_5e-J3Plp_pWqbnBQ/exec"}?query=${encodeURIComponent(query)}`);
+                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbyDiM96bb35BfSOKbZZYi5ji-cEDCMrDu5dq8GzwP6YgoJHnHfvB6VACRAojxWh6MvbxA/exec"}?query=${encodeURIComponent(query)}`);
                 if (!response.ok) {
                     throw new Error('查詢失敗，請稍後再試！');
                 }
@@ -32,24 +32,25 @@ document.addEventListener('DOMContentLoaded', function () {
                         <table border="1" style="width: 100%; border-collapse: collapse; text-align: center;">
                             <thead>
                                 <tr>
+                                    <th>欄位名稱</th>
+                                    <th>對應值1</th>
+                                    <th>對應值2</th>
+                                    <!-- 根據實際需要可以動態增加更多列 -->
+                                </tr>
+                            </thead>
+                            <tbody>
                     `;
-                
-                    // 表格標題行
-                    data[0].forEach(header => {
-                        tableHTML += `<th>${header || ''}</th>`;
+
+                    // 表格內容
+                    data.forEach(row => {
+                        tableHTML += `
+                            <tr>
+                                <td>${row[0] || ''}</td>
+                                ${row.slice(1).map(item => `<td>${item || ''}</td>`).join('')}
+                            </tr>
+                        `;
                     });
-                
-                    tableHTML += `</tr></thead><tbody>`;
-                
-                    // 表格內容行
-                    data.slice(1).forEach(row => {
-                        tableHTML += '<tr>';
-                        row.forEach(cell => {
-                            tableHTML += `<td>${cell || ''}</td>`;
-                        });
-                        tableHTML += '</tr>';
-                    });
-                
+
                     tableHTML += `</tbody></table>`;
                     resultDiv.innerHTML = tableHTML; // 顯示結果表格
                 } else {
@@ -63,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
 
 
 // 處理表單提交
