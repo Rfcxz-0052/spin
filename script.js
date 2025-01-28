@@ -4,12 +4,6 @@ function showPage(page) {
     document.getElementById('search-page').style.display = page === 'search' ? 'block' : 'none';
 }
 
-// 切換填寫和查詢表單內容
-function showPage(page) {
-    document.getElementById('submit-page').style.display = page === 'submit' ? 'block' : 'none';
-    document.getElementById('search-page').style.display = page === 'search' ? 'block' : 'none';
-}
-
 // 查詢表單提交處理
 document.addEventListener('DOMContentLoaded', function () {
     const searchForm = document.getElementById('search-form');
@@ -23,14 +17,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             try {
-                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbxkKEca_wARZnXkanHHB2anrnif_wgCGEAqW4gmWn6vDYneg5m6X4uOdnIWNmzOovtdhA/exec"}?query=${encodeURIComponent(query)}`);
+                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbzT-ffSms6GDm_ceDjd0h3VbyRRsjke1278onow4WD8L35Yqu0D2UFM5DLTHfhXDxrDPg/exec"}?query=${encodeURIComponent(query)}`);
                 if (!response.ok) {
                     throw new Error('查詢失敗，請稍後再試！');
                 }
 
                 const data = await response.json();
                 const resultDiv = document.getElementById('search-results');
-                if (Array.isArray(data) && data.length > 0) {
+                if (Object.keys(data).length > 0) {
                     // 建立表格
                     let tableHTML = `
                         <table border="1" style="width: 100%; border-collapse: collapse; text-align: center;">
@@ -39,28 +33,24 @@ document.addEventListener('DOMContentLoaded', function () {
                     `;
 
                     // 動態生成表格標題行
-                    if (data.length > 0) {
-                        Object.keys(data[0]).forEach(header => {
-                            tableHTML += `<th>${header}</th>`;
-                        });
-                    }
-                    
+                    Object.keys(data).forEach(header => {
+                        tableHTML += `<th>${header}</th>`;
+                    });
+
                     tableHTML += `
                             </tr>
                         </thead>
                         <tbody>
+                            <tr>
                     `;
 
-                    // 遍歷資料，生成表格行
-                    data.forEach(item => {
-                        tableHTML += `<tr>`;
-                        Object.values(item).forEach(value => {
-                            tableHTML += `<td>${value}</td>`;
-                        });
-                        tableHTML += `</tr>`;
+                    // 顯示該人名的資料
+                    Object.values(data).forEach(value => {
+                        tableHTML += `<td>${value}</td>`;
                     });
 
                     tableHTML += `
+                            </tr>
                         </tbody>
                     </table>
                     `;
