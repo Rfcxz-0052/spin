@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             try {
-                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbzDlgpKksAGdfQ4OMIJ3wVk9Yuz9wlYrSVj25w8LgXeBA8UGbj2SMhEmwJLljOZZ-jX1w/exec"}?query=${encodeURIComponent(query)}`);
+                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbxeSgWsohzJ0E5fEeF13khcFDtkUz0g8g_Mz-nAMxRtOqp9aGQUa9R18B7cA_GR9BKvXg/exec"}?query=${encodeURIComponent(query)}`);
                 if (!response.ok) {
                     throw new Error('查詢失敗，請稍後再試！');
                 }
@@ -25,21 +25,34 @@ document.addEventListener('DOMContentLoaded', function () {
                 const data = await response.json();
                 const resultDiv = document.getElementById('search-results');
                 if (Array.isArray(data) && data.length > 0) {
+                    // 建立表格
                     let tableHTML = `
                         <table border="1" style="width: 100%; border-collapse: collapse; text-align: center;">
                             <thead>
                                 <tr>
-                                    ${Object.keys(data[0]).map(header => `<th>${header}</th>`).join('')}
+                                    <th>標題</th>
+                                    <th>值</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    ${Object.values(data).map(item => `<td>${item[Object.keys(item)[0]] || ''}</td>`).join('')}
-                                </tr>
+                    `;
+                
+                    // 遍歷資料，生成表格行
+                    data.forEach(item => {
+                        tableHTML += `
+                            <tr>
+                                <td>${item.header}</td>
+                                <td>${item.value}</td>
+                            </tr>
+                        `;
+                    });
+                
+                    tableHTML += `
                             </tbody>
                         </table>
                     `;
-                    resultDiv.innerHTML = tableHTML;
+                
+                    resultDiv.innerHTML = tableHTML; // 更新結果區域
                 } else {
                     resultDiv.innerHTML = '<p>無符合條件的結果。</p>';
                 }
