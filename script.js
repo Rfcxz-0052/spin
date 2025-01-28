@@ -69,6 +69,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+// 查詢頁面的 "重新輸入" 按鈕處理
+document.addEventListener('DOMContentLoaded', function () {
+    const resetButton = document.querySelector('#search-form input[type="reset"]');
+    if (resetButton) {
+        resetButton.addEventListener('click', function () {
+            const resultDiv = document.getElementById('search-results');
+            if (resultDiv) {
+                resultDiv.innerHTML = ''; // 清空查詢結果
+            }
+        });
+    }
+});
+
+
 // 處理表單提交
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('myForm');
