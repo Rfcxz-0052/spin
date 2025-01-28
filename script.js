@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             try {
-                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbzxBDf333vDqpvWI4wqyhFtGVuVqSnxcTKcjL1hcuk3_yRv10QeswkCLdFAb4g824T48Q/exec"}?query=${encodeURIComponent(query)}`);
+                const response = await fetch(`${"https://script.google.com/macros/s/AKfycbxkKEca_wARZnXkanHHB2anrnif_wgCGEAqW4gmWn6vDYneg5m6X4uOdnIWNmzOovtdhA/exec"}?query=${encodeURIComponent(query)}`);
                 if (!response.ok) {
                     throw new Error('查詢失敗，請稍後再試！');
                 }
