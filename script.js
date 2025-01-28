@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     // 根據返回資料的列動態生成對應的表頭
                     const maxCols = data[0].length - 1; // 除去欄位名稱
                     for (let i = 1; i <= maxCols; i++) {
-                        tableHTML += `<th>對應值${i}</th>`;
+                        tableHTML += `<th>訂單${i}</th>`;
                     }
 
                     tableHTML += `</tr></thead><tbody>`;
