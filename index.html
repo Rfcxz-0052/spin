@@ -11,8 +11,8 @@
     <header>
         <nav>
             <!-- 切換頁面的按鈕 -->
-            <button type="button" onclick="showPage('submit')">填寫表單</button>
-            <button type="button" id="search" onclick="showPage('search')">查詢內容</button>            
+            <button onclick="showPage('submit')">填寫表單</button>
+            <button id="search" onclick="showPage('search')">查詢內容</button>            
         </nav>
     </header>
     <h1>麗文書局-學校消耗品訂購表</h1>
@@ -44,7 +44,7 @@
                     <button type="button" onclick="showCategory('category4')">電池、生活用品類</button>
                 </nav>
                 <legend class="choose_product">-- 選購商品 --</legend>
-                <div id="category1" class="category">
+                <div id="category1" class="category" style="display: none;">
                     <h2>筆類</h2>
                     <div class="item">
                         <div class="item_01">
