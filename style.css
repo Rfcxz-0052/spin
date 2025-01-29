@@ -91,6 +91,11 @@ h2{
     margin: 0 2% 0 2%;
 }
 
+.price {
+    color: red;
+    font-weight: bold;
+}
+
 .memo {
     border: none;
     margin: 0 30px 0 30px;

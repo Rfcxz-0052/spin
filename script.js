@@ -83,7 +83,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-
 // 處理表單提交
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('myForm');
