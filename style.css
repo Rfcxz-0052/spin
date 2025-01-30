@@ -96,6 +96,21 @@ h2{
     font-weight: bold;
 }
 
+#floating-total {
+    position: fixed;
+    top: 85%;
+    right: 20px;
+    background-color: rgba(237, 230, 12, 0.9);
+    padding: 10px 20px;
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+    z-index: 1000;
+}
+
 .memo {
     border: none;
     margin: 0 30px 0 30px;

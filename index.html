@@ -376,7 +376,7 @@
                         const totalAmountElement = document.getElementById("totalAmount");
 
                         if (!totalAmountElement) {
-                            console.error("找不到 #totalAmount，請檢查 HTML");
+                            console.error("找不到 #totalAmount,請檢查 HTML");
                             return;
                         }
 
@@ -387,7 +387,7 @@
                                 const item = input.closest(".item_01"); // 找到最近的商品容器
 
                                 if (!item) {
-                                    console.error("找不到 .item_01，請檢查 HTML 結構");
+                                    console.error("找不到 .item_01,請檢查 HTML 結構");
                                     return;
                                 }
 
@@ -419,7 +419,9 @@
 
                 </script>
                 <!-- 顯示總金額 -->
-                <div class="total-price">商品金額合計: <span id="totalAmount">0</span> 元</div>
+                <div id="floating-total">
+                    商品金額合計: <span id="totalAmount">0</span> 元
+                </div>
             </fieldset>
 
             <fieldset class="memo">
