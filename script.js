@@ -83,34 +83,107 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const quantities = document.querySelectorAll("input[type='number']");
+    const totalAmountElement = document.getElementById("totalAmount");
+
+    if (!totalAmountElement) {
+        console.error("找不到 #totalAmount,請檢查 HTML");
+        return;
+    }
+
+    function updateTotal() {
+        let total = 0;
+        quantities.forEach((input) => {
+            const quantity = parseInt(input.value) || 0; // 獲取數量
+            const item = input.closest(".item_01"); // 找到最近的商品容器
+
+            if (!item) {
+                console.error("找不到 .item_01,請檢查 HTML 結構");
+                return;
+            }
+
+            const priceElements = item.querySelectorAll(".price"); // 找到所有價格標籤
+            const inputs = item.querySelectorAll("input[type='number']"); // 找到所有數量輸入框
+            
+            // 確保價格和數量對應
+            inputs.forEach((inputField, index) => {
+                if (inputField === input) {
+                    const priceElement = priceElements[index]; // 取得對應價格
+                    if (priceElement) {
+                        const price = parseInt(priceElement.dataset.price); // 取得單價
+                        total += quantity * price; // 計算金額
+                    }
+                }
+            });
+        });
+
+        totalAmountElement.textContent = total; // 更新總金額
+    }
+
+    // 綁定事件監聽
+    quantities.forEach((input) => {
+        input.addEventListener("input", updateTotal);
+    });
+
+        // **監聽表單提交事件**
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); // 避免預設提交，確保可以顯示提示框
+        alert("表單成功提交！"); // 顯示成功提示（可選）
+        
+        // **重置所有輸入框數值**
+        quantities.forEach((input) => {
+            input.value = ""; // 清空數量
+        });
+
+        // **重置總金額**
+        totalAmountElement.textContent = "0";
+    });
+
+    updateTotal(); // 初始化計算
+});
+
 // 處理表單提交
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('myForm');
-    if (form) {
+    const totalAmountElement = document.getElementById("totalAmount");
+    const quantities = document.querySelectorAll("input[type='number']");
+
+    if (form && totalAmountElement) {
         form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
+            e.preventDefault();
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
 
-        try {
-            const response = await fetch('https://spin-sg6f.onrender.com', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data),
-            });
-            const result = await response.json();
-            alert(result.message);
+            try {
+                const response = await fetch('https://spin-sg6f.onrender.com', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                });
 
-            // 提交成功後清空並重置表單
-            form.reset();
+                const result = await response.json();
+                alert(result.message);
 
-        } catch (error) {
-            console.error('Error:', error);
-            alert('Submission failed.');
-        }
+                // **提交成功後清空數量輸入框**
+                quantities.forEach((input) => {
+                    input.value = ""; // 清空數量
+                });
+
+                // **重置總金額**
+                totalAmountElement.textContent = "0";
+
+                // **清空並重置表單**
+                form.reset();
+
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Submission failed.');
+            }
         });
     }
 });
+
 
 /*表單僅於每月1日至15日開放填寫,如15日當天為星期六日,則順延至下個星期一,只作用在submit-page 分頁
 document.addEventListener("DOMContentLoaded", function () {

@@ -82,13 +82,13 @@ h2{
 }
 
 .item {
-    display: flex;
-    flex-direction: row;
-    margin: 0 2% 30px 2%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    margin: 0 4% 30px 4%;
 }
 
 .item_01{
-    margin: 0 2% 0 2%;
+    margin: 0 3% 0 3%;
 }
 
 .price {
