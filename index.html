@@ -40,8 +40,9 @@
                 <nav>
                     <button type="button" onclick="showCategory('category1')">筆類</button>
                     <button type="button" onclick="showCategory('category2')">辦公用品類</button>
-                    <button type="button" onclick="showCategory('category3')">膠水膠帶類</button>                
-                    <button type="button" onclick="showCategory('category4')">電池、生活用品類</button>
+                    <button type="button" onclick="showCategory('category3')">便利貼、紙類</button>  
+                    <button type="button" onclick="showCategory('category4')">膠水膠帶類</button>              
+                    <button type="button" onclick="showCategory('category5')">電池、生活用品類</button>
                 </nav>
                 <legend class="choose_product">-- 選購商品 --</legend>
                 <div id="category1" class="category" style="display: none;">
@@ -107,24 +108,33 @@
                             <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/board_maker.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
                             <label>白板筆</label><br>
                             紅色 數量: <input type="number" class="quantity" id="board_maker_red" name="board_maker_red" min="0" style="width: 50px;">支
-                            單價: <span class="price" data-price="20"> 20 </span> 元<br>
+                            單價: <span class="price" data-price="40"> 40 </span> 元<br>
                             藍色 數量: <input type="number" class="quantity" id="board_maker_blue" name="board_maker_blue" min="0" style="width: 50px;">支
-                            單價: <span class="price" data-price="20"> 20 </span> 元<br>
+                            單價: <span class="price" data-price="40"> 40 </span> 元<br>
                             黑色 數量: <input type="number" class="quantity" id="board_maker_black" name="board_maker_black" min="0" style="width: 50px;">支
-                            單價: <span class="price" data-price="20"> 20 </span> 元<br>
+                            單價: <span class="price" data-price="40"> 40 </span> 元<br>
                         </div>
         
                         <div class="item_01">
                             <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/marker_ink.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                            <label>白板筆補充液</label><br>
+                            <label>白板筆卡水</label><br>
                             紅色 數量: <input type="number" class="quantity" id="maker_ink_red" name="maker_ink_red" min="0" style="width: 50px;">瓶
-                            單價: <span class="price" data-price="48"> 48 </span> 元<br>
+                            單價: <span class="price" data-price="25"> 25 </span> 元<br>
                             藍色 數量: <input type="number" class="quantity" id="maker_ink_blue" name="maker_ink_blue" min="0" style="width: 50px;">瓶
-                            單價: <span class="price" data-price="48"> 48 </span> 元<br>
+                            單價: <span class="price" data-price="25"> 25 </span> 元<br>
                             黑色 數量: <input type="number" class="quantity" id="maker_ink_black" name="maker_ink_black" min="0" style="width: 50px;">瓶
-                            單價: <span class="price" data-price="48"> 48 </span> 元<br>
+                            單價: <span class="price" data-price="25"> 25 </span> 元<br>
                         </div>
-                        <div class="item_01"></div>
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/highlighter_pen.png" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>【斑馬】直液式螢光筆</label><br>
+                            黃色 數量: <input type="number" class="quantity" id="highlighter_pen_yellow" name="highlighter_pen_yellow" min="0" style="width: 50px;">瓶
+                            單價: <span class="price" data-price="24"> 24 </span> 元<br>
+                            粉色 數量: <input type="number" class="quantity" id="highlighter_pen_pink" name="highlighter_pen_pink" min="0" style="width: 50px;">瓶
+                            單價: <span class="price" data-price="24"> 24 </span> 元<br>
+                            黃橙色 數量: <input type="number" class="quantity" id="highlighter_pen_orange" name="highlighter_pen_orange" min="0" style="width: 50px;">瓶
+                            單價: <span class="price" data-price="24"> 24 </span> 元<br>
+                        </div>
                         <div class="item_01"></div>
                     </container>
                 </div>
@@ -138,14 +148,14 @@
                             數量: <input type="number" class="quantity" id="utility_knife" name="utility_knife" min="0" style="width: 50px;">支
                             單價: <span class="price" data-price="32"> 32 </span> 元<br>
                         </div>
-        
+
                         <div class="item_01">
-                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/blackboard_eraser.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                            <label>板擦 (顏色隨機)</label><br>
-                            數量: <input type="number" class="quantity" id="board_eraser" name="board_eraser" min="0" style="width: 50px;">個
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/scissors.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>ABEL 剪刀</label><br>
+                            數量: <input type="number" class="quantity" id="scissors" name="scissors" min="0" style="width: 50px;">支
                             單價: <span class="price" data-price="28"> 28 </span> 元<br>
                         </div>
-               
+              
                         <div class="item_01">
                             <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/correction_tape.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
                             <label>SDI修正帶</label><br>
@@ -225,17 +235,6 @@
                             黑色 數量: <input type="number" class="quantity" id="ink_oil_black" name="ink_oil_black" min="0" style="width: 50px;">瓶
                             單價: <span class="price" data-price="28"> 28 </span> 元<br>
                         </div>
-
-                        <div class="item_01">
-                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/post.png" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                            <label>便利貼</label><br>
-                            小 數量: <input type="number" class="quantity" id="post_01" name="post_01" min="0" style="width: 50px;">個
-                            單價: <span class="price" data-price="24"> 24 </span> 元<br>
-                            中 數量: <input type="number" class="quantity" id="post_02" name="post_02" min="0" style="width: 50px;">個
-                            單價: <span class="price" data-price="30"> 30 </span> 元<br>
-                            大 數量: <input type="number" class="quantity" id="post_03" name="post_03" min="0" style="width: 50px;">個
-                            單價: <span class="price" data-price="34"> 34 </span> 元<br>
-                        </div>
         
                         <div class="item_01">
                             <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/date_stamp.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
@@ -243,16 +242,18 @@
                             數量: <input type="number" class="quantity" id="date_stamp" name="date_stamp" min="0" style="width: 50px;">個
                             單價: <span class="price" data-price="64"> 64 </span> 元<br>
                         </div>
+                        
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/band.png" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>橡皮圈</label><br>
+                            大 數量: <input type="number" class="quantity" id="band" name="band" min="0" style="width: 50px;">包
+                            單價: <span class="price" data-price="64"> 64 </span> 元<br>
+                            小 數量: <input type="number" class="quantity" id="band_01" name="band_01" min="0" style="width: 50px;">包
+                            單價: <span class="price" data-price="56"> 56 </span> 元<br>
+                        </div>
                     </container>
     
-                    <container class="item">
-                        <div class="item_01">
-                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/number_oil.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                            <label>號碼機油</label><br>
-                            數量: <input type="number" class="quantity" id="number_oil" name="number_oil" min="0" style="width: 50px;">瓶
-                            單價: <span class="price" data-price="48"> 48 </span> 元<br>
-                        </div>   
-        
+                    <container class="item">        
                         <div class="item_01">
                             <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/stapler.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
                             <label>SDI 10號釘書機</label><br>
@@ -275,41 +276,16 @@
                             數量: <input type="number" class="quantity" id="paper_clip" name="paper_clip" min="0" style="width: 50px;">盒
                             單價: <span class="price" data-price="16"> 16 </span> 元<br>
                         </div>
-                    </container>
 
-                    <container class="item">
                         <div class="item_01">
                             <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/drawing_pin.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
                             <label>力大NO.604 圖釘</label><br>
                             數量: <input type="number" class="quantity" id="drawing_pin" name="drawing_pin" min="0" style="width: 50px;">盒
                             單價: <span class="price" data-price="20"> 20 </span> 元<br>
                         </div>
-        
-                        <div class="item_01">
-                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/scissors.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                            <label>ABEL 剪刀</label><br>
-                            數量: <input type="number" class="quantity" id="scissors" name="scissors" min="0" style="width: 50px;">支
-                            單價: <span class="price" data-price="28"> 28 </span> 元<br>
-                        </div>   
-    
-                        <div class="item_01">
-                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/lipstick_glue.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                            <label>UHU口紅膠21G</label><br>
-                            數量: <input type="number" class="quantity" id="lipstick_glue" name="lipstick_glue" min="0" style="width: 50px;">個
-                            單價: <span class="price" data-price="28"> 28 </span> 元<br>
-                        </div>
-    
-                        <div class="item_01">
-                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/band.png" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                            <label>橡皮圈</label><br>
-                            大 數量: <input type="number" class="quantity" id="band" name="band" min="0" style="width: 50px;">包
-                            單價: <span class="price" data-price="64"> 64 </span> 元<br>
-                            小 數量: <input type="number" class="quantity" id="band_01" name="band_01" min="0" style="width: 50px;">包
-                            單價: <span class="price" data-price="56"> 56 </span> 元<br>
-                        </div>
                     </container>
 
-                    <container class="item">
+                    <container class="item">    
                         <div class="item_01">
                             <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/binder_clip.png" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
                             <label>ABEL 長尾夾</label><br>
@@ -320,7 +296,100 @@
                             大 (41mm) 數量: <input type="number" class="quantity" id="binder_clip_03" name="binder_clip_03" min="0" style="width: 50px;">盒
                             單價: <span class="price" data-price="24"> 24 </span> 元<br>
                         </div>
-        
+
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/chalk.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>粉筆(一盒50支)</label><br>
+                            白色 數量: <input type="number" class="quantity" id="chalk_01" name="chalk_01" min="0" style="width: 50px;">盒
+                            單價: <span class="price" data-price="48"> 48 </span> 元<br>
+                            黃色 數量: <input type="number" class="quantity" id="chalk_02" name="chalk_02" min="0" style="width: 50px;">盒
+                            單價: <span class="price" data-price="72"> 72 </span> 元<br>
+                            紅色 數量: <input type="number" class="quantity" id="chalk_04" name="chalk_04" min="0" style="width: 50px;">盒
+                            單價: <span class="price" data-price="72"> 72 </span> 元<br>
+                            綠色 數量: <input type="number" class="quantity" id="chalk_05" name="chalk_05" min="0" style="width: 50px;">盒
+                            單價: <span class="price" data-price="72"> 72 </span> 元<br>
+                        </div>
+
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/blackboard_eraser.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>板擦 (顏色隨機)</label><br>
+                            數量: <input type="number" class="quantity" id="board_eraser" name="board_eraser" min="0" style="width: 50px;">個
+                            單價: <span class="price" data-price="28"> 28 </span> 元<br>
+                        </div>
+
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/kit.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>【哈哈】11孔極靚防滑白邊資料袋A4/(100入)</label><br>
+                            數量: <input type="number" class="quantity" id="kit" name="kit" min="0" style="width: 50px;">盒
+                            單價: <span class="price" data-price="120"> 120 </span> 元<br>
+                        </div>
+                    </container>
+
+                    <container class="item">
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/magazine_box.png" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>力大牌開放式雜誌盒63604</label><br>
+                            黑色 數量: <input type="number" class="quantity" id="magazine_box_01" name="magazine_box_01" min="0" style="width: 50px;">盒
+                            單價: <span class="price" data-price="88"> 88 </span> 元<br>
+                            白色 數量: <input type="number" class="quantity" id="magazine_box_02" name="magazine_box_02" min="0" style="width: 50px;">盒
+                            單價: <span class="price" data-price="88"> 88 </span> 元<br>
+                            淺藍色 數量: <input type="number" class="quantity" id="magazine_box_03" name="magazine_box_03" min="0" style="width: 50px;">盒
+                            單價: <span class="price" data-price="88"> 88 </span> 元<br>
+                            深藍色 數量: <input type="number" class="quantity" id="magazine_box_04" name="magazine_box_04" min="0" style="width: 50px;">盒
+                            單價: <span class="price" data-price="88"> 88 </span> 元<br>
+                        </div>
+
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/magazine_box_01.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>力大牌兩用式雜誌盒63605</label><br>
+                            黑色 數量: <input type="number" class="quantity" id="magazine_box_05" name="magazine_box_05" min="0" style="width: 50px;">盒
+                            單價: <span class="price" data-price="104"> 104 </span> 元<br>
+                            白色 數量: <input type="number" class="quantity" id="magazine_box_06" name="magazine_box_06" min="0" style="width: 50px;">盒
+                            單價: <span class="price" data-price="104"> 104 </span> 元<br>
+                            淺藍色 數量: <input type="number" class="quantity" id="magazine_box_07" name="magazine_box_07" min="0" style="width: 50px;">盒
+                            單價: <span class="price" data-price="104"> 104 </span> 元<br>
+                            深藍色 數量: <input type="number" class="quantity" id="magazine_box_08" name="magazine_box_08" min="0" style="width: 50px;">盒
+                            單價: <span class="price" data-price="104"> 104 </span> 元<br>
+                        </div>
+
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/l_clip.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>【哈哈】L型夾(12入) #E310-015</label><br>
+                            數量: <input type="number" class="quantity" id="l_clip" name="l_clip" min="0" style="width: 50px;">盒
+                            單價: <span class="price" data-price="48"> 48 </span> 元<br>
+                        </div>
+
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/u_clip.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>【哈哈】U型夾-直式(12入) #F-U-018</label><br>
+                            數量: <input type="number" class="quantity" id="u_clip" name="u_clip" min="0" style="width: 50px;">盒
+                            單價: <span class="price" data-price="77"> 77 </span> 元<br>
+                        </div>
+                    </container>
+                </div>
+
+                <div id="category3" class="category" style="display: none;">
+                    <h2>便利貼、紙類</h2>
+                    <container class="item">
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/stickers.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>3M 非抽取式標籤-5色 12*43mm</label><br>
+                            非抽取式標籤583 數量: <input type="number" class="quantity" id="stickers_01" name="stickers_01" min="0" style="width: 50px;">盒
+                            單價: <span class="price" data-price="32"> 32 </span> 元<br>
+                            非抽取式箭頭標籤584 數量: <input type="number" class="quantity" id="stickers_02" name="stickers_02" min="0" style="width: 50px;">盒
+                            單價: <span class="price" data-price="32"> 32 </span> 元<br>
+                        </div> 
+
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/post.png" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>便利貼</label><br>
+                            小 數量: <input type="number" class="quantity" id="post_01" name="post_01" min="0" style="width: 50px;">個
+                            單價: <span class="price" data-price="24"> 24 </span> 元<br>
+                            中 數量: <input type="number" class="quantity" id="post_02" name="post_02" min="0" style="width: 50px;">個
+                            單價: <span class="price" data-price="30"> 30 </span> 元<br>
+                            大 數量: <input type="number" class="quantity" id="post_03" name="post_03" min="0" style="width: 50px;">個
+                            單價: <span class="price" data-price="34"> 34 </span> 元<br>
+                        </div>
                         <div class="item_01">
                             <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/labels.png" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
                             <label>自黏標籤</label><br>
@@ -349,69 +418,114 @@
 
                     <container class="item">
                         <div class="item_01">
-                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/chalk.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                            <label>粉筆(一盒50支)</label><br>
-                            白色 數量: <input type="number" class="quantity" id="chalk_01" name="chalk_01" min="0" style="width: 50px;">盒
-                            單價: <span class="price" data-price="48"> 48 </span> 元<br>
-                            黃色 數量: <input type="number" class="quantity" id="chalk_02" name="chalk_02" min="0" style="width: 50px;">盒
-                            單價: <span class="price" data-price="72"> 72 </span> 元<br>
-                            紅色 數量: <input type="number" class="quantity" id="chalk_04" name="chalk_04" min="0" style="width: 50px;">盒
-                            單價: <span class="price" data-price="72"> 72 </span> 元<br>
-                            綠色 數量: <input type="number" class="quantity" id="chalk_05" name="chalk_05" min="0" style="width: 50px;">盒
-                            單價: <span class="price" data-price="72"> 72 </span> 元<br>
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/da_paper.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>Double A A4影印紙(一箱5包)</label><br>
+                            數量: <input type="number" class="quantity" id="da_paper" name="da_paper" min="0" style="width: 50px;"><br>
+                            單價: <span class="price" data-price="695"> 695 </span> 元<br>                            
                         </div>
+
                         <div class="item_01"></div>
                         <div class="item_01"></div>
                         <div class="item_01"></div>
                     </container>
                 </div>
-    
-                <div id="category3" class="category" style="display: none;">
+
+                <div id="category4" class="category" style="display: none;">
                     <h2>膠水膠帶類</h2>
                     <container class="item">
                         <div class="item_01">
                             <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/pvc_tape.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                            <label>封箱膠帶 四維(4.8cm*27m)</label><br>
+                            <label>牛皮封箱膠帶</label><br>
                             數量: <input type="number" class="quantity" id="pvc_tape" name="pvc_tape" min="0" style="width: 50px;">捲
                             單價: <span class="price" data-price="36"> 36 </span> 元<br>
                         </div>
         
                         <div class="item_01">
                             <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/tape.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                            <label>透明膠帶(大) OPP膠帶-2吋</label><br>
-                            數量: <input type="number" class="quantity" id="tape" name="tape" min="0" style="width: 50px;">捲
+                            <label>透明封箱膠帶</label><br>
+                            2吋80M 數量: <input type="number" class="quantity" id="tape_01" name="tape_01" min="0" style="width: 50px;">捲
                             單價: <span class="price" data-price="36"> 36 </span> 元<br>
+                            2.5吋 數量: <input type="number" class="quantity" id="tape_02" name="tape_02" min="0" style="width: 50px;">捲
+                            單價: <span class="price" data-price="28"> 28 </span> 元<br>
                         </div>
         
                         <div class="item_01">
                             <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/opp_tape.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
-                            <label>透明膠帶(小) 18mm*40y</label><br>
-                            數量: <input type="number" class="quantity" id="opp_tape" name="opp_tape" min="0" style="width: 50px;">捲
+                            <label>透明膠帶</label><br>
+                            大 (寬)24mm 數量: <input type="number" class="quantity" id="opp_tape_01" name="opp_tape_01" min="0" style="width: 50px;">捲
+                            單價: <span class="price" data-price="28"> 28 </span> 元<br>
+                            中 (寬)18mm 數量: <input type="number" class="quantity" id="opp_tape_02" name="opp_tape_02" min="0" style="width: 50px;">捲
                             單價: <span class="price" data-price="20"> 20 </span> 元<br>
+                            小 (寬)12mm 數量: <input type="number" class="quantity" id="opp_tape_03" name="opp_tape_03" min="0" style="width: 50px;">捲
+                            單價: <span class="price" data-price="16"> 16 </span> 元<br>
                         </div>   
         
                         <div class="item_01">
                             <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/double_sided.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
                             <label>雙面膠帶 四維(1.2cm*15Y)</label><br>
-                            數量: <input type="number" class="quantity" id="double_sided" name="double_sided" min="0" style="width: 50px;">個
+                            大 (寬)24mm 數量: <input type="number" class="quantity" id="double_sided_01" name="double_sided_01" min="0" style="width: 50px;">個
+                            單價: <span class="price" data-price="56"> 56 </span> 元<br>
+                            中 (寬)18mm 數量: <input type="number" class="quantity" id="double_sided_02" name="double_sided_02" min="0" style="width: 50px;">個
+                            單價: <span class="price" data-price="44"> 44 </span> 元<br>
+                            小 (寬)12mm 數量: <input type="number" class="quantity" id="double_sided_03" name="double_sided_03" min="0" style="width: 50px;">個
                             單價: <span class="price" data-price="28"> 28 </span> 元<br>
                         </div>
                     </container>
 
                     <container class="item">
                         <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/invisible_tape.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>3M 隱形膠帶810</label><br>
+                            隱形膠帶台 19mm 數量: <input type="number" class="quantity" id="invisible_tape_01" name="invisible_tape_01" min="0" style="width: 50px;">個
+                            單價: <span class="price" data-price="100"> 100 </span> 元<br>
+                            隱形膠帶台替芯 19mm 數量: <input type="number" class="quantity" id="invisible_tape_02" name="invisible_tape_02" min="0" style="width: 50px;">個
+                            單價: <span class="price" data-price="94"> 94 </span> 元<br>
+                            隱形膠帶台 12mm 數量: <input type="number" class="quantity" id="invisible_tape_03" name="invisible_tape_03" min="0" style="width: 50px;">個
+                            單價: <span class="price" data-price="92"> 92 </span> 元<br>
+                            隱形膠帶台替芯 19mm 數量: <input type="number" class="quantity" id="invisible_tape_04" name="invisible_tape_04" min="0" style="width: 50px;">個
+                            單價: <span class="price" data-price="86"> 86 </span> 元<br>
+                        </div>
+
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/cloth_tape.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>布質雙面膠帶</label><br>
+                            15mm*25米 數量: <input type="number" class="quantity" id="cloth_tape_01" name="cloth_tape_01" min="0" style="width: 50px;">個
+                            單價: <span class="price" data-price="132"> 132 </span> 元<br>
+                            20mm*25米 數量: <input type="number" class="quantity" id="cloth_tape_02" name="cloth_tape_02" min="0" style="width: 50px;">個
+                            單價: <span class="price" data-price="176"> 176 </span> 元<br>
+                        </div>
+
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/pluss_tape.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>PLUS 旋轉雙面膠帶</label><br>
+                            旋轉雙面膠帶 數量: <input type="number" class="quantity" id="pluss_tape_01" name="pluss_tape_01" min="0" style="width: 50px;">個
+                            單價: <span class="price" data-price="60"> 60 </span> 元<br>
+                            旋轉雙面膠帶替芯 數量: <input type="number" class="quantity" id="pluss_tape_02" name="pluss_tape_02" min="0" style="width: 50px;">個
+                            單價: <span class="price" data-price="48"> 48 </span> 元<br>
+                        </div>
+
+                        <div class="item_01">
                             <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/glue.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
                             <label>膠水(雄獅) 50cc</label><br>
                             數量: <input type="number" class="quantity" id="glue" name="glue" min="0" style="width: 50px;">瓶
                             單價: <span class="price" data-price="10"> 10 </span> 元<br>
+                        </div>
+                    </container>
+
+                    <container class="item">
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/lipstick_glue.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>UHU口紅膠21G</label><br>
+                            數量: <input type="number" class="quantity" id="lipstick_glue" name="lipstick_glue" min="0" style="width: 50px;">個
+                            單價: <span class="price" data-price="28"> 28 </span> 元<br>
                         </div>
                         <div class="item_01"></div>
                         <div class="item_01"></div>
                         <div class="item_01"></div>
                     </container>
                 </div>
-    
-                <div id="category4" class="category" style="display: none;">
+
+                <div id="category5" class="category" style="display: none;">
                     <h2>電池、生活用品類</h2>
                     <container class="item">
                         <div class="item_01">
@@ -430,8 +544,49 @@
                             單價: <span class="price" data-price="359"> 359 </span> 元<br>
                         </div>
         
-                        <div class="item_01"></div>
-                        <div class="item_01"></div>
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/towel.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>艾多美 抽取式廚房紙巾</label><br>
+                            數量: <input type="number" class="quantity" id="towel" name="towel" min="0" style="width: 50px;">串
+                            單價: <span class="price" data-price="125"> 125 </span> 元<br>
+                        </div>
+
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/hand_soap.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>艾多美 洗手乳</label><br>
+                            數量: <input type="number" class="quantity" id="hand_soap" name="hand_soap" min="0" style="width: 50px;">串
+                            單價: <span class="price" data-price="165"> 165 </span> 元<br>
+                        </div>
+                    </container>
+
+                    <container class="item">
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/hook.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>3M 無痕一般掛鉤系列-大型(2入) #27003</label><br>
+                            數量: <input type="number" class="quantity" id="hook_01" name="hook_01" min="0" style="width: 50px;">串
+                            單價: <span class="price" data-price="138"> 138 </span> 元<br>
+                        </div>
+
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/hook_02.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>3M無痕鐵上鉤收納系列-中型掛鉤(2入) #27070</label><br>
+                            數量: <input type="number" class="quantity" id="hook_02" name="hook_02" min="0" style="width: 50px;">串
+                            單價: <span class="price" data-price="138"> 138 </span> 元<br>
+                        </div>
+
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/clean.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>奈森淨好擦萬用清潔巾80張(掀蓋) 1044041</label><br>
+                            數量: <input type="number" class="quantity" id="clean" name="clean" min="0" style="width: 50px;">串
+                            單價: <span class="price" data-price="49"> 49 </span> 元<br>
+                        </div>
+
+                        <div class="item_01">
+                            <img src="https://raw.githubusercontent.com/Rfcxz-0052/spin/main/product_picture/alcohol.jpg" alt="pencil" width="200px" height="200px" style="border: 1px dashed green;"><br>
+                            <label>奈森克林酒精濕紙巾60張(掀蓋) 105028</label><br>
+                            數量: <input type="number" class="quantity" id="alcohol" name="alcohol" min="0" style="width: 50px;">串
+                            單價: <span class="price" data-price="69"> 69 </span> 元<br>
+                        </div>
                     </container>
                 </div>
 
