@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // **監聽表單提交事件**
     form.addEventListener("submit", function (event) {
         event.preventDefault(); // 避免預設提交，確保可以顯示提示框
-        alert("表單成功提交！可至查詢訂購頁面確認您的訂單內容。"); // 顯示成功提示（可選）
+        alert("表單成功提交！"); // 顯示成功提示（可選）
         
         // **重置所有輸入框數值**
         quantities.forEach((input) => {
