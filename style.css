@@ -38,15 +38,17 @@ h1 {
 }
 
 /* nav 的外層樣式 */
+/* 預設樣式（適用於桌機） */
 nav {
-    display: flex; /* 使用 flexbox 排列按鈕 */
-    margin: 20px 0 20px 0;
-    width: 100%;
+    display: flex;
+    flex-wrap: wrap; /* 允許按鈕換行 */
+    justify-content: center; /* 讓按鈕置中 */
 }
 
 /* 按鈕樣式 */
 nav button {
     flex: 1; /* 按鈕寬度均分 */
+    min-width: 120px; /* 最小寬度，避免過小 */
     border: none; /* 移除邊框 */
     background-color: green; /* 背景顏色為綠色 */
     color: white; /* 按鈕文字顏色為白色 */
@@ -67,6 +69,27 @@ nav button:hover {
     background-color: limegreen; /* 滑鼠懸停時的顏色 */
 }
 
+/* 平板：當螢幕寬度小於 768px 時，按鈕兩行排列 */
+@media (max-width: 768px) {
+    nav {
+        flex-wrap: wrap;
+    }
+    nav button {
+        flex: 1 1 calc(50% - 10px); /* 兩行排列，每個按鈕約 50% */
+    }
+}
+
+/* 手機：當螢幕寬度小於 480px 時，按鈕改為垂直排列 */
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav button {
+        width: 80%; /* 讓按鈕更適合手機 */
+    }
+}
+
 .choose_product {
     font-size: 2em;
     font-weight: bold;
@@ -83,14 +106,33 @@ h2{
 
 
 .item {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    display: grid; /* 使用 Grid 排版 */
+    grid-template-columns: repeat(4, 1fr); /* 每行 4 欄，等寬分配 */
     margin: 0 2% 30px 2%;
 }
 
-.item_01{
-    margin: 0 1% 30px 1%;
+.item_01 {
+    margin: 0 4% 30px 4%;
 }
+
+.item_01 img {
+    width: 250px; /* 圖片自適應寬度 */
+    height: 250px; /* 保持圖片比例 */
+    border: 1px dashed green;
+}
+
+@media (max-width: 768px) {
+    .item {
+        grid-template-columns: repeat(2, 1fr); /* 平板上每行 2 欄 */
+    }
+}
+
+@media (max-width: 480px) {
+    .item {
+        grid-template-columns: repeat(1, 1fr); /* 手機上每行 1 欄 */
+    }
+}
+
 
 .price {
     color: red;

@@ -126,18 +126,18 @@ document.addEventListener("DOMContentLoaded", function () {
         input.addEventListener("input", updateTotal);
     });
 
-        // **監聽表單提交事件**
-    form.addEventListener("submit", function (event) {
-        event.preventDefault(); // 避免預設提交，確保可以顯示提示框
-        alert("表單成功提交!"); // 顯示成功提示（可選）
-        
-        // **重置所有輸入框數值**
-        quantities.forEach((input) => {
-            input.value = ""; // 清空數量
-        });
+    // **監聽表單提交事件**
+    document.addEventListener("submit", function (event) {
+    event.preventDefault(); // 避免預設提交，確保可以顯示提示框
+    alert("表單成功提交!"); // 顯示成功提示（可選）
+    
+    // **重置所有輸入框數值**
+    quantities.forEach((input) => {
+        input.value = ""; // 清空數量
+    });
 
-        // **重置總金額**
-        totalAmountElement.textContent = "0";
+    // **重置總金額**
+    totalAmountElement.textContent = "0";
     });
 
     updateTotal(); // 初始化計算
