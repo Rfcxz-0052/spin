@@ -43,6 +43,7 @@ nav {
     display: flex;
     flex-wrap: wrap; /* 允許按鈕換行 */
     justify-content: center; /* 讓按鈕置中 */
+    gap: 10px;
 }
 
 /* 按鈕樣式 */
