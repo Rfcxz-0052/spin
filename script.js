@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (Array.isArray(data) && data.length > 0) {
                     // 動態生成表格，垂直展開資料
                     let tableHTML = `
-                        <table border="1" style="width: 80%; border-collapse: collapse; text-align: center;">
+                        <table border="1" style="width: 80%; border-collapse: collapse; text-align: center; background-color: white;">
                             <thead>
                                 <tr>
                                     <th>欄位名稱</th>
